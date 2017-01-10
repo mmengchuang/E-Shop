@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>订单管理页面</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/admin/js/html5shiv.min.js"></script>
+    <script src="/admin/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<h1>订单管理页面 </h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>订单编号</td>
+            <td>商品名称</td>
+            <td>商品金额</td>
+            <td>商品数量</td>
+            <td>总计</td>
+            <td>下单用户</td>
+            <td>下单时间</td>
+        </tr>
+    </thead>
+    <tbody>
+    <% data.forEach(function(order){ %>
+    <tr>
+        <td><%=order.id%></td>
+        <td><%=order.g_name%></td>
+        <td><%=order.g_price%> 元</td>
+        <td><%=order.g_count%></td>
+        <td><%=(order.g_price)*(order.g_count)%> 元</td>
+        <td><%=order.u_name%></td>
+        <td><%=order.o_time%></td>
+    </tr>
+    <% }) %>
+    </tbody>
+</table>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/admin/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/admin/js/bootstrap.min.js"></script>
+</body>
+</html>
