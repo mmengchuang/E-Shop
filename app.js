@@ -12,6 +12,7 @@ var admin_users = require('./routes/admin/users');
 var api_orders = require('./routes/api/orders');
 var api_shopcar = require('./routes/api/shopcar');
 var api_users = require('./routes/api/users');
+var api_file = require('./routes/api/file');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use("/admin/users",admin_users);
 app.use("/api/orders",api_orders);
 app.use("/api/shopcar",api_shopcar);
 app.use("/api/users",api_users);
+app.use("/api/file",api_file);
 
 
 // catch 404 and forward to error handler
