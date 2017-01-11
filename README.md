@@ -178,4 +178,65 @@
   "msg": "失败"}`
  
 
-  token  移动端唯一的凭证                                                                          
+  token  移动端唯一的凭证      
+
+----
+用户模块
+
+  注册用户
+  请求URL：`http://mmengchen.iask.in:21648/api/users/register`
+
+ 请求方式:POST 
+
+ 需要传递的参数 ：`u_name u_pwd`
+
+  服务器端请求成功返回数据:`{
+  "error_code": "4000",
+  "msg": "success"}`
+
+  服务器端请求成功失败数据:`{
+  "error_code": "4013",
+  "msg": "失败"}` 
+
+-----
+  查询用户信息
+
+   请求URL http://mmengchen.iask.in:21648/api/users
+
+   请求方式:GET 
+     
+   需要传递的参数 ：`token uid` 
+
+  服务器端请求成功返回数据:`{
+  "error_code": "4000",
+  "msg": "success"
+  data:[dasdasd]}`
+
+  服务器端请求成功失败数据:`{
+  "error_code": "4013",
+  "msg": "失败"}`
+****
+  修改用户信息
+    请求URL http://mmengchen.iask.in:21648/api/users
+
+   请求方式:POST 
+     
+   需要传递的参数 ：`token u_nick u_address u_head u_truename u_phone u_email` 
+
+  服务器端请求成功返回数据:`{
+  "error_code": "4000",
+  "msg": "success"}`
+
+  服务器端请求成功失败数据:`{
+  "error_code": "4013",
+  "msg": "失败"}`
+
+
+
+
+
+
+
+
+error_code 为4000为成功代码
+error_code 为4013为错误代码                                             
