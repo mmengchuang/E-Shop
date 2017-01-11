@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>添加商品</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/addgoods.css"/>	
+    <script src="/js/vue.js"></script>
+  </head>
+<body>
+     <!--<div id="main" >
+			<table id="t1">
+				<thead><tr >
+					<th>学号</th><th>姓名</th><th>性别</th><th>年龄</th><th>家庭住址</th><th>操作</th>
+				</tr></thead>
+				<tbody>
+				<tr v-for="stu in stus"><td>{{stu.id}}</td><td>{{stu.name}}</td><td>{{stu.sex}}</td>
+					<td>{{stu.age}}</td><td>{{stu.addre}}</td><td><a @click="del(stu,index)">{{stu.ope}}</a></tr>
+		</tbody>
+			</table>-->
+			
+	<div >
+		<h3 >添加商品</h3>
+		<div id="d1">
+		<form  id="f1" @submit.prevent ="judge" action="/goods/addg" method="post">
+			商品名称: <input v-model="name" name="name" placeholder="戴尔电脑"/><br /><br />
+			商品价格: <input v-model="price" name="price"/><br /><br />
+			商品数量: <input v-model="num" name="num"/><br /><br />
+			商品描述: <input v-model="detail" name="detail"/><br /><br />
+			生产厂家: <input v-model="produce" name="produce"/><br /><br />
+			商品主图: <input v-model="pics" name="pics"/><br /><br />
+		 <input type="submit" value="提交" />	
+		</div>
+		</form>
+	</div>
+		
+<!--		</div>-->
+
+		<script>
+			var vue=new Vue({
+				el:"#main",
+				data:{
+					name:"",
+					price:"",
+					num:"",
+					detail:"",
+					produce:'',
+					pics:[]
+					/*stus:[
+					{id:110,name:'娇娇1',sex:'女',age:18,addre:'河南',ope:'删除'},
+					]*/
+				},
+				methods:{
+					judge:function(){
+					
+						
+//						var s={name:this.name,price:this.price,num:this.num,age:this.detail,produce:this.produce};
+//						this.stus.push(s);
+//             这种方法也可以           this.stus.$set(0,Object.assign({},s));
+					},
+					/*del:function(item,index){
+						alert("del"+index+"aa:"+item.id);
+						this.stus.pop(index);
+					}*/
+				}
+			})
+		</script>
+  </body>
+</html>
