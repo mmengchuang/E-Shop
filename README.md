@@ -2,7 +2,13 @@
 一个集Node JS服务器和安卓端的项目
 ----
 使用方式
-  `npm install --save`
+  
+`1.执行 npm install --save`
+
+`2.在Mysql中创建Goods表 ，将goods.sql 导入`
+
+`3.执行 npm start 启动`
+
 
 ###移动端接口调用请求说明
 
@@ -32,7 +38,7 @@
 
 ---- 
 
-下单操作(存在bug，未进行事务操作)
+下单操作()
  
  请求URL：`http://mmengchen.iask.in:21648/api/orders/preOrder`
 
@@ -172,5 +178,4 @@
   "msg": "失败"}`
  
 
-  token  移动端唯一的凭证
-
+  token  移动端唯一的凭证                                                                          

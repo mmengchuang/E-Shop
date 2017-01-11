@@ -106,57 +106,87 @@ exports.preOrder = function (req, res) {
         'insert into orderinfo(o_id,g_id,g_count) values(?,?,?)',//向订单详情信息表插入数据
         'update good set g_num=? where id=?;'
     ];
-    connect.query(sqls[0], [g_id], function (err, result) {//查询库存
-        if (err == null) {
-            if (result.length > 0) {//库存充足
-                g_num = result[0].g_num;//将库存信息保存
-                console.log("库存为" + g_num);
-                connect.query(sqls[1], [u_id, o_time], function (err, result) {//向订单表插入数据
-                    if (err == null) {
-                        connect.query(sqls[2], [u_id, o_time], function (err, result) {//查询订单的id
-                            console.log("查询到订单的id为" + result[0].id);
-                            if (err == null) {
-                                connect.query(sqls[3], [result[0].id, g_id, g_count], function (err, result) {//向订单详情信息表插入数据
-                                    if (err == null) {//下单成功
-                                        connect.query(sqls[4], [(g_num - g_count), g_id], function (err, result) {//更新商品库存
-                                            if (err == null) {
-                                                res.writeHead(200, {'Content-Type': 'application/json'});
-                                                var data = {error_code: '4000', msg: "下单成功"};
-                                                res.end(JSON.stringify(data));
-                                            } else {
+    connection.beginTransaction(function (err) {//开启一个事务操作
+        if (err) {
+            throw err;
+        }
+        connect.query(sqls[0], [g_id], function (err, result) {//查询库存
+            if (err == null) {
+                if (result.length > 0) {//库存充足
+                    g_num = result[0].g_num;//将库存信息保存
+                    console.log("库存为" + g_num);
+                    connect.query(sqls[1], [u_id, o_time], function (err, result) {//向订单表插入数据
+                        if (err == null) {
+                            connect.query(sqls[2], [u_id, o_time], function (err, result) {//查询订单的id
+                                console.log("查询到订单的id为" + result[0].id);
+                                if (err == null) {
+                                    connect.query(sqls[3], [result[0].id, g_id, g_count], function (err, result) {//向订单详情信息表插入数据
+                                        if (err == null) {//下单成功
+                                            connect.query(sqls[4], [(g_num - g_count), g_id], function (err, result) {//更新商品库存
+                                                if (err == null) {
+                                                    connect.commit(function (err) {//提交事务操作
+                                                        if (err) {
+                                                            return connect.rollback(function () {//回滚操作
+                                                                throw err;
+                                                            });
+                                                        }
+                                                        res.writeHead(200, {'Content-Type': 'application/json'});
+                                                        var data = {error_code: '4000', msg: "下单成功"};
+                                                        res.end(JSON.stringify(data));
+                                                    });
+                                                } else {
+                                                    return connect.rollback(function () {//数据回滚操作
+                                                        //throw err;
+                                                        res.writeHead(200, {'Content-Type': 'application/json'});
+                                                        var data = {error_code: '4011', msg: "下单失败" + err};
+                                                        res.end(JSON.stringify(data));
+                                                    });
+                                                }
+                                            })
+                                        } else {
+                                            return connect.rollback(function () {//数据回滚操作
+                                                //throw err;
                                                 res.writeHead(200, {'Content-Type': 'application/json'});
                                                 var data = {error_code: '4011', msg: "下单失败" + err};
                                                 res.end(JSON.stringify(data));
-                                            }
-                                        })
-                                    } else {
+                                            });
+                                        }
+                                    });
+                                } else {
+                                    return connect.rollback(function () {//数据回滚操作
+                                        //throw err;
                                         res.writeHead(200, {'Content-Type': 'application/json'});
-                                        var data = {error_code: '4012', msg: "下单失败" + err};
+                                        var data = {error_code: '4011', msg: "下单失败" + err};
                                         res.end(JSON.stringify(data));
-                                    }
-                                });
-                            } else {
+                                    });
+                                }
+                            });
+                        } else {
+                            return connect.rollback(function () {//数据回滚操作
+                                //throw err;
                                 res.writeHead(200, {'Content-Type': 'application/json'});
-                                var data = {error_code: '4013', msg: "下单失败" + err};
+                                var data = {error_code: '4011', msg: "下单失败" + err};
                                 res.end(JSON.stringify(data));
-                            }
-                        });
-                    } else {
+                            });
+                        }
+                    });
+                } else {
+                    return connect.rollback(function () {//数据回滚操作
+                        //throw err;
                         res.writeHead(200, {'Content-Type': 'application/json'});
-                        var data = {error_code: '4015', msg: "下单失败" + err};
+                        var data = {error_code: '4011', msg: "商品库存不足"};
                         res.end(JSON.stringify(data));
-                    }
-                });
+                    });
+                }
             } else {
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                var data = {error_code: '4016', msg: "该商品库存不足"};
-                res.end(JSON.stringify(data));
+                return connect.rollback(function () {//数据回滚操作
+                    //throw err;
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    var data = {error_code: '4011', msg: "下单失败" + err};
+                    res.end(JSON.stringify(data));
+                });
             }
-        } else {
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            var data = {error_code: '4017', msg: "下单失败" + err};
-            res.end(JSON.stringify(data));
-        }
+        });
     });
 }
 
@@ -224,32 +254,53 @@ exports.addCar = function (req, res) {
         'select id from car where u_id =?',//查询购物车的id
         'insert into carinfo(c_id,g_id,g_count) values(?,?,?)',//购物车详情信息表插入数据
     ];
-    connect.query(sqls[0], [g_id], function (err, result) {//向购物车表插入数据
-        if (err == null) {
-            connect.query(sqls[1], [u_id], function (err, result) {//查询购物车id
-                if (err == null) {
-                    console.log("查询购物车的id为" + result[0].id);
-                    connect.query(sqls[2], [result[0].id, g_id, g_count], function (err, result) {//向购物车表详情插入数据
-                        if (err == null) {
-                            res.writeHead(200, {'Content-Type': 'application/json'});
-                            var data = {error_code: '4000', msg: "success"};
-                            res.end(JSON.stringify(data));
-                        } else {
-                            res.writeHead(200, {'Content-Type': 'application/json'});
-                            var data = {error_code: '4012', msg: "添加失败" + err};
-                            res.end(JSON.stringify(data));
-                        }
-                    });
-                } else {
-                    res.writeHead(200, {'Content-Type': 'application/json'});
-                    var data = {error_code: '4013', msg: "添加失败" + err};
-                    res.end(JSON.stringify(data));
-                }
-            });
-        } else {
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            var data = {error_code: '4015', msg: "添加失败" + err};
-            res.end(JSON.stringify(data));
+    connect.beginTransaction(function(err) {
+        if (err) {
+            throw err;
         }
+        connect.query(sqls[0], [g_id], function (err, result) {//向购物车表插入数据
+            if (err == null) {
+                connect.query(sqls[1], [u_id], function (err, result) {//查询购物车id
+                    if (err == null) {
+                        console.log("查询购物车的id为" + result[0].id);
+                        connect.query(sqls[2], [result[0].id, g_id, g_count], function (err, result) {//向购物车表详情插入数据
+                            if (err == null) {
+                                connect.commit(function (err) {//提交事务操作
+                                    if (err) {
+                                        return connect.rollback(function () {//回滚操作
+                                            throw err;
+                                        });
+                                    }
+                                    res.writeHead(200, {'Content-Type': 'application/json'});
+                                    var data = {error_code: '4000', msg: "success"};
+                                    res.end(JSON.stringify(data));
+                                });
+                            } else {
+                                return connect.rollback(function () {//数据回滚操作
+                                    //throw err;
+                                    res.writeHead(200, {'Content-Type': 'application/json'});
+                                    var data = {error_code: '4011', msg: err};
+                                    res.end(JSON.stringify(data));
+                                });
+                            }
+                        });
+                    } else {
+                        return connect.rollback(function () {//数据回滚操作
+                            //throw err;
+                            res.writeHead(200, {'Content-Type': 'application/json'});
+                            var data = {error_code: '4011', msg: err};
+                            res.end(JSON.stringify(data));
+                        });
+                    }
+                });
+            } else {
+                return connect.rollback(function () {//数据回滚操作
+                    //throw err;
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    var data = {error_code: '4011', msg: err};
+                    res.end(JSON.stringify(data));
+                });
+            }
+        });
     });
 }
