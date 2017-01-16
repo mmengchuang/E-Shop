@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>网站后台博客信息管理 | AdminLTE 2</title>
+    <script src="/js/vue.js" type="text/javascript"></script>
+		<script src="/js/vue-resource.min.js" type="text/javascript"></script>
+		<script src="/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="/stylesheets/show.css" />
+		<link rel="stylesheet" href="/stylesheets/addgoods.css" />
+
+  </head>
+  <body style="background-color: #F2F2F2">
+   
+      
+   <div id="main">
+		<h1 >添 加 商 品</h1>
+		<div id="d1">
+			<!--@submit.prevent ="judge"-->
+		<form  id="f1"  onsubmit="return judge()" action="/goods/addg" method="post" >
+			商品名称: <input  name="name" placeholder="戴尔电脑"/><br /><br />
+			商品价格: <input  name="price" id="g_price"/><br /><br />
+			商品数量: <input  name="num" id="g_num"/><br /><br />
+			商品描述: <input  name="detail"/><br /><br />
+			生产厂家: <input  name="produce"/><br /><br />
+			商品属性:颜色：<select id="color" name="col"></select>&nbsp&nbsp
+			品牌：<select id="pin" name="pin"></select><br/><br/>
+			笔记本cpu:<select id="cpu" name="cpu"></select>&nbsp&nbsp
+			显卡类型：<select id="xian" name="xian"></select><br/><br/>
+			尺寸：<select id="size" name="size"></select><br/><br/>
+		
+		 <input type="submit" value="添加" />	
+		</form>
+		</div>
+	</div>
+    </div> 
+<script>
+	var pattern= /^[0-9]*[1-9][0-9]*$/;
+function judge(){
+	 var x=document.getElementsByTagName("input");
+  for (var i=0; i<x.length; i++){
+      if (x[i].value=="") {
+      	alert("商品信息不能有空！");
+          return false;// 有空值
+      }
+  }
+if(!pattern.test($("#g_price").val())){
+						alert("输入的商品价格非法: "+$("#g_price").val());
+						return false;
+					}
+	if(!pattern.test($("#g_num").val())){
+						alert("输入的商品价格非法: "+$("#g_num").val());
+						return false;
+					}
+
+}
+
+			window.onload=function(){   //页面加载完会执行的操作
+				$("#g_price").change(function(){
+					if(!pattern.test(this.value)){
+						alert("输入的商品价格非法: "+this.value);
+					}
+				});
+				$("#g_num").change(function(){
+					if(!pattern.test(this.value)){
+						alert("输入的商品数量非法: "+this.value);
+					}
+				});
+    		$.ajax({
+    			type:"get",
+					url:"/goods/getlabel",
+					async:true,
+					dataType:'json',
+					success:function(res){
+						if(res.length<1){
+							return;
+						}else{
+							var opts1="";var opts2="";var opts3="";var opts4="";var opts5="";
+							//颜色下拉表
+							for(var i=0;i<res.length;i++){
+								if(res[i].upid==1){
+									opts1 +="<option value="+res[i].content+">"+res[i].content+"</option>";
+								}
+								if(res[i].upid==2){
+									opts2 +="<option value="+res[i].content+">"+res[i].content+"</option>";
+								}
+								if(res[i].upid==3){
+									opts3 +="<option value="+res[i].content+">"+res[i].content+"</option>";
+								}
+								if(res[i].upid==4){
+									opts4 +="<option value="+res[i].content+">"+res[i].content+"</option>";
+								}
+								if(res[i].upid==5){
+									opts5 +="<option value="+res[i].content+">"+res[i].content+"</option>";
+								}
+							}
+							$(opts1).appendTo("#color");
+								$(opts2).appendTo("#pin");
+									$(opts3).appendTo("#cpu");
+										$(opts4).appendTo("#xian");
+											$(opts5).appendTo("#size");
+						}
+    		},
+    		error:function(err){
+							alert("错误："+err);
+						}
+    	});
+    
+    		}
+
+		</script>
+		
+  </body>
+</html>
