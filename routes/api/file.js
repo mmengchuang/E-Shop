@@ -11,71 +11,51 @@ var formidable = require('formidable');
 var path = require('path');
 var router = express.Router();
 
-var firstPage = function (res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    var html = fs.readFileSync(__dirname + '/public/form.html');
-    res.end(html);
-}
-
-var resultPage = function (res, data, files) {
-    res.setHeader('Content-Type', 'text/html');
-    res.write('<p>thanks ' + data.name + '</p>');
-    res.write('<ul>');
-    console.log(data);
-    console.log(files);
-
-    if (Array.isArray(files.images)) {
-        files.images.forEach(function (image) {
-            var kb = image.size / 1024 | 0;
-            res.write('<li>uploaded ' + image.name + ' ' + kb + 'kb</li>');
-        });
-    } else {
-        var image = files.images;
-        var kb = image.size / 1024 | 0;
-        res.write('<li>uploaded ' + image.name + ' ' + kb + 'kb</li>');
-    }
-
-    res.end('</ul>');
-}
 /** 验证token是否一致 */
 router.use(db.checkToken);
 
 /* 文件上传*/
 router.post('/upload', function (req, res) {
-    if (req.method == 'GET') {
-        return firstPage(res);
-    }
+        var uid = req.body.uid;
+        var form = new formidable.IncomingForm;//创建一个incoming form实例
+        form.uploadDir = path.join(__dirname, '../../public/temp')//设置文件上传路径为静态资源路径下的temp
+        form.keepExtensions = true;//设置上传后文件使用原扩展名
 
-    var form = new formidable.IncomingForm;
-    var data = {};
-    var files = {};
-
-    form.uploadDir = path.join(__dirname,'../../public/uploadFiles')//设置文件上传路径为静态资源路径下的uploadFiles
-    form.keepExtensions = true;
-
-    function ondata(name, val, data) {
-        if (Array.isArray(data[name])) {//数组
-            data[name].push(val);
-        } else if (data[name]) {//同key
-            data[name] = [data[name], val];
-        } else {//第一次
-            data[name] = val;
+        var targetDir = path.join(__dirname, '../../public/upload');//设置文件移动路径为静态资源路径下的upload'
+        // 检查目标目录，不存在则创建
+        fs.access(targetDir, function (err) {
+            if (err) {
+                fs.mkdirSync(targetDir);
+            }
+            _fileParse();
+        });
+        // 文件解析与保存
+        function _fileParse() {
+            form.parse(req, function (err, fields, files) {
+                if (err) throw err;
+                var filesUrl = [];
+                var errCount = 0;
+                var keys = Object.keys(files);
+                keys.forEach(function (key) {
+                    var filePath = files[key].path;
+                    var fileExt = filePath.substring(filePath.lastIndexOf('.'));
+                    if (('.jpg.jpeg.png.gif').indexOf(fileExt.toLowerCase()) === -1) {
+                        errCount += 1;
+                    } else {
+                        //以当前时间和用户id对上传文件进行重命名
+                        var fileName = "upload_" + uid + "_" + new Date().getTime() + fileExt;
+                        var targetFile = path.join(targetDir, fileName);
+                        //移动文件
+                        fs.renameSync(filePath, targetFile);
+                        // 文件的Url（相对路径）
+                        filesUrl.push('/upload/' + fileName)
+                    }
+                });
+                // 返回上传信息
+                res.json({filesUrl: filesUrl, success: keys.length - errCount, error: errCount});
+            });
         }
     }
-
-    form.on('field', function (name, val) {
-        ondata(name, val, data);
-    });
-
-    form.on('file', function (name, val) {
-        ondata(name, val, files);
-    });
-    form.on('end', function () {
-        resultPage(res, data, files);
-    });
-
-    form.parse(req);
-
-});
+);
 
 module.exports = router;

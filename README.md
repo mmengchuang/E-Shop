@@ -217,7 +217,8 @@
   "msg": "失败"}`
 ****
   修改用户信息
-    请求URL http://mmengchen.iask.in:21648/api/users
+
+   请求URL http://mmengchen.iask.in:21648/api/users
 
    请求方式:POST 
      
@@ -235,14 +236,19 @@
   文件上传模块
 
   使用方法：功能调试中，
+ 
+
+  请求地址：http://mmengchen.iask.in:21648/api/file/upload
+  
+  请求方式 ：POST
+
+  需要传递的参数为 `token uid 文件` 
+
+  请求成功返回 `{"filesUrl":["/upload/2015.jpg"],"success":1,"error":0}`
+   
+  移动端请求样例
   
 
-  需要传递的参数为 token
-
-
-
-
-
-
 error_code 为4000为成功代码
+
 error_code 为4013为错误代码                                             
