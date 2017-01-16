@@ -1,0 +1,41 @@
+<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				cursor: pointer;
+			}
+			#t1{
+				background: white;
+				border-radius: 3px;
+				width:600px;
+				margin: 60px auto;
+				border: solid 1px black;
+				column-count: 6;
+				text-align: center;
+				border-collapse: 1;
+			}
+			
+			#t1 tr th{
+				background: #42b983;
+				text-align: center;
+				border-right: solid 1px black;
+			}
+			#t1 tr td{
+				text-align: center;
+				border-right: solid 1px black;
+			}
+			
+			#t1 tr{height: 30px;
+				border: solid 1px black;
+				background-color: #F9F9F9;
+			}
+			 #d1{
+			 	font-size: 15px;
+			 	text-align: center;
+			 	margin: 20px auto;
+			 }
+			h3{text-align: center;
+			margin-top: 20px;}
+		</style>
