@@ -75,15 +75,15 @@
 						<td>{{res.color}}</td>
 						<td>{{res.pin}}</td>
 						<td>{{res.cpu}}</td>
-						<td>{{res.xian}}</td>
+						<td>&nbsp;&nbsp;&nbsp;{{res.xian}}&nbsp;&nbsp;&nbsp;</td>
 						<td>{{res.size}}</td>
 						<td>{{res.g_looknum}}</td>
 						<td>{{res.g_product}}</td>
 						<td>{{res.g_state}}</td>
-						<td>{{res.g_time}}</td>
+						<td>&nbsp;&nbsp;&nbsp;{{res.g_time}}&nbsp;&nbsp;&nbsp;</td>
 						<td>
-							<a @click="del(res)">删除</a>
-							<a :href="'/goods/updategoods?g='+res.id">修改</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;	<a @click="del(res)">删除</a>&nbsp;&nbsp;&nbsp;
+							<a :href="'/goods/updategoods?g='+res.id">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
 				</tbody>
@@ -140,6 +140,7 @@
 							});
 						}
 					},
+
 					onloading: function() {
 						var ob = this; //当前对象
 						Vue.http.get('/goods/queryg').then(function(res) {
@@ -150,10 +151,17 @@
 							for(var i = 0; i < r.length; i++) {
 								r[i].hao = (i + 1); //设置序列号
 								var time = r[i].g_time;
+var hour=parseInt(time.split("T")[1].substr(0,2))+8;
+
+time=time.split("T")[0]+" "+hour+time.split("T")[1].substring(2,8);
 								r[i].g_time = time.replace("T", " ");
-								r[i].g_time = r[i].g_time.replace(".000Z", "");
+								r[i].g_time = r[i].g_time.replace(".000Z", " ");
 								if(r[i].g_state==0){
 									r[i].g_state="保存"
+								}else if(r[i].g_state==1){
+									r[i].g_state="发布"
+								}else if(r[i].g_state==-1){
+									r[i].g_state="下线"
 								}
 								//整理标签信息
 								for(var j = 0; j < label.length; j++) {

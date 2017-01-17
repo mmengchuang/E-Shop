@@ -11,6 +11,19 @@ router.use(bodyParser.urlencoded({
 router.get('/',function(req,res,next){
 	res.render('goods/index');
 });
+
+//修改商品状态
+router.get('/ustate',function(req,res,next){
+	res.render('goods/updatestate');
+});
+//修改商品为发布状态
+router.get('/stateup',function(req,res,next){
+	dboper.ugup(req,res);
+});
+//修改商品为下线状态
+router.get('/statedown',function(req,res,next){
+	dboper.ugdown(req,res);
+});
 //商品添加页面
 router.get('/add',function(req,res,next){
 	res.render('goods/addgood');

@@ -7,7 +7,7 @@ var mysql = require("mysql");
 var conn = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: '123456',
+	password: 'root',
 	database: 'goods',
 	port: '3306'
 });
@@ -157,7 +157,6 @@ exports.update = function(req, res) {
 	var num = req.body.num;
 	var detail = req.body.detail;
 	var produce = req.body.produce;
-
 	var color1 = req.body.color;
 	var pin = req.body.pin;
 	var cpu = req.body.cpu;
@@ -172,7 +171,7 @@ exports.update = function(req, res) {
 	};
 	var str = JSON.stringify(a);
 	//获取当前时间
-
+console.log("修改信息："+id+str);
 	var nowTime = getNowFormatData();
 	conn.beginTransaction(function(err) {
 		if(err) {
@@ -191,7 +190,7 @@ exports.update = function(req, res) {
 				});
 			} else {
 				var s1 = "update label set label_con=?,color=?,pin=?,cpu=?,xian=?,size=? where g_id=?";
-				var para = [str, id, color1, pin, cpu, xian, size];
+				var para = [str, color1, pin, cpu, xian, size,id];
 				conn.query(s1, para, function(err, result) {
 					if(err) {
 						console.log("err2:" + err);
@@ -215,6 +214,16 @@ exports.update = function(req, res) {
 			}
 		});
 	});
+}
+//商品发布状态
+exports.ugup=function(req,res){
+	updateState(req.query.g,1);
+	res.render('goods/updatestate');
+}
+//商品下线状态
+exports.ugdown=function(req,res){
+	updateState(req.query.g,-1);
+	res.render('goods/updatestate');
 }
 
 exports.getlabel = function(req, res) {
@@ -350,5 +359,19 @@ function getNowFormatData() {
 		seperator2 + date.getSeconds();
 	return currentdate;
 }
+
+function updateState(id,num){
+	var sql="update good set g_state=? where id=?";
+				var ps = [num, id];
+				conn.query(sql, ps, function(err, result) {
+					if(err) {
+						console.log("good修改状态err:" + err);
+						conn.rollback(function() {
+							throw err;
+						});
+					}
+					console.log("商品状态修改成功" );
+				});
+	}
 
 //conn.close();
