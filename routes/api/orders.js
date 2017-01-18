@@ -11,12 +11,12 @@ var router = express.Router();
 router.use(db.checkToken);
 
 /** 查询订单 */
-router.get('/',db.showOrdersToMobile);
+router.post('/',db.showOrdersToMobile);
 
 /** 下单 */
 router.post('/preOrder',db.preOrder);
 
 /** 取消订单 */
-router.get('/canelOrder',db.cancelOrder);
+router.post('/canelOrder',db.cancelOrder);
 
 module.exports = router;

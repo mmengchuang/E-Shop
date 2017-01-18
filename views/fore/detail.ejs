@@ -1,289 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>商品详情页</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-<script src="../js/vue.js" type="text/javascript"></script>
-		<script src="../js/vue-resource.min.js" type="text/javascript"></script>
-<link href='http://fonts.useso.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.useso.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
-<link href='http://fonts.useso.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
-<link href="../stylesheets/bootstrap.css" rel="stylesheet">
-<link href="../stylesheets/bootstrap-responsive.css" rel="stylesheet">
-<link href="../stylesheets/style.css" rel="stylesheet">
-<link href="../stylesheets/flexslider.css" type="text/css" media="screen" rel="stylesheet"  />
-<link href="../stylesheets/jquery.fancybox.css" rel="stylesheet">
-<link href="../stylesheets/cloud-zoom.css" rel="stylesheet">
-<link rel="shortcut icon" href="../assets/ico/favicon.ejs">
+    <meta charset="utf-8">
+    <title>商品详情页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="../js/vue.js" type="text/javascript"></script>
+    <script src="../js/vue-resource.min.js" type="text/javascript"></script>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="../stylesheets/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../stylesheets/style.css" rel="stylesheet">
+    <link href="../stylesheets/flexslider.css" type="text/css" media="screen" rel="stylesheet"  />
+    <link href="../stylesheets/jquery.fancybox.css" rel="stylesheet">
+    <link href="../stylesheets/cloud-zoom.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/ico/favicon.ejs">
 
 </head>
 <body>
 <!-- Header Start -->
 <header>
-  <div class="headerstrip">
-    <div class="container">
-      <div class="row">
-        <div class="span12">
-          <a href="index-2.html" class="logo pull-left"><img src="../img/logo.png" alt="SimpleOne" title="SimpleOne"></a>
-          <!-- Top Nav Start -->
-          <div class="pull-left">
-            <div class="navbar" id="topnav">
-              <div class="navbar-inner">
-                <ul class="nav" >
-                  <li><a class="home active" href="/appindex">首 页</a>
-                  </li>
-                  <li><a class="myaccount" href="#">个人中心</a>
-                  </li>
-                  <li><a class="shoppingcart" href="#">购物车</a>
-                  </li>
-                  <li><a class="checkout" href="#">推荐</a>
-                  </li>
-                </ul>
-              </div>
+    <div class="headerstrip">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <a href="index-2.html" class="logo pull-left"><img src="../img/logo.png" alt="SimpleOne" title="SimpleOne"></a>
+                    <!-- Top Nav Start -->
+                    <div class="pull-left">
+                        <div class="navbar" id="topnav">
+                            <div class="navbar-inner">
+                                <ul class="nav" >
+                                    <li><a class="home active" href="/appindex">首 页</a>
+                                    </li>
+                                    <li><a class="myaccount" href="#">个人中心</a>
+                                    </li>
+                                    <li><a class="shoppingcart" href="#">购物车</a>
+                                    </li>
+                                    <li><a class="checkout" href="#">推荐</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Top Nav End -->
+                </div>
             </div>
-          </div>
-          <!-- Top Nav End -->
         </div>
-      </div>
     </div>
-  </div>
 </header>
 <!-- Header End -->
 <div id="m">
-<div id="maincontainer" >
-  <section id="product">
-    <div class="container">      
-      <!-- Product Details-->
-      <div class="row" style="text-align: center;margin-top: 5px;">
-      	 <h1 class="productname"><span class="bgnone">{{name}}</span></h1>
-       <!-- Left Image-->
-        <div class="span5">
-          <ul class="thumbnails mainimage" >
-            <li class="span5" v-for="pic in pics" >
-              <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="#">
-                <img v-bind:src="pic.p_url" alt="what happen" title="" >
-              </a>
-            </li>
-          </ul>
-       
-        </div>
-         <!-- Right Details-->
-        <div class="span7">
-          <div class="row">
-            <div class="span7" >
-              <div class="productprice" style="text-align: center;margin: -10px 80px;">
-                <div class="productpageprice" >
-                  <span > ￥ {{price}}</span></div>
-               
-                <ul class="rate" >
-                  <li class="on"></li>
-                  <li class="on"></li>
-                  <li class="on"></li>
-                  <li class="off"></li>
-                  <li class="off"></li>
-                </ul>
-              </div>
-               <h4 >商品颜色：{{color}}</h4>
-                <h4 >商品品牌：{{pin}}</h4> <h4 > 商 品 cpu：{{cpu}}</h4> <h4 >商品显卡类型：{{xian}}</h4><h4 >商品尺寸类型：{{size}}</h4>
-                 <h4>商品关注量：{{praise}}</h4>
-                  <h4 >商品数量：{{num}}</h4>
-                     <h4 >商品生产地：{{produce}}</h4><br />
-             
-              </div>
-              <ul class="productpagecart">
-                <li><a class="cart" href="#">Add to Cart</a>
-                </li>
-                <li><a class="wish" href="#" >Add to Wishlist</a>
-                </li>
-              </ul>
-         <!-- Product Description tab & comments-->
-         <div class="productdesc">
-                <ul class="nav nav-tabs" id="myTab">
-                  <li class="active"><a href="#description">Description</a>
-                  </li>
-                  <li><a href="#specification">Specification</a>
-                  </li>
-                  <li><a href="#review">Review</a>
-                  </li>
-                  <li><a href="#producttag">Tags</a>
-                  </li>
-                </ul>
-                <div class="tab-content">
-                  <div class="tab-pane active" id="description">
-                    <h2> {{name}} 介 绍</h2>
-                    {{detail}} {{detail}}<br>
-                    <br>
-                   
-                  </div>
-                  <div class="tab-pane " id="specification">
-                    <ul class="productinfo">
-                      <li>
-                        <span class="productinfoleft"> Product Code:</span> Product 16 </li>
-                      <li>
-                        <span class="productinfoleft"> Reward Points:</span> 60 </li>
-                      <li>
-                        <span class="productinfoleft"> Availability: </span> In Stock </li>
-                      <li>
-                        <span class="productinfoleft"> Old Price: </span> $500.00 </li>
-                      <li>
-                        <span class="productinfoleft"> Ex Tax: </span> $500.00 </li>
-                    
-                      <li>
-                        <span class="productinfoleft"> Product Code:</span> Product 16 </li>
-                      <li>
-                        <span class="productinfoleft"> Reward Points:</span> 60 </li>
-                    </ul>
-                  </div>
-                  <div class="tab-pane" id="review">
-                    <h3>Write a Review</h3>
-                    <form class="form-vertical">
-                      <fieldset>
-                        <div class="control-group">
-                          <label class="control-label">Text input</label>
-                          <div class="controls">
-                            <input type="text" class="span3">
-                          </div>
+    <div id="maincontainer" >
+        <section id="product">
+            <div class="container">
+                <!-- Product Details-->
+                <div class="row" style="text-align: center;margin-top: 5px;">
+                    <h1 class="productname"><span class="bgnone">{{name}}</span></h1>
+                    <!-- Left Image-->
+                    <div class="span5">
+                        <ul class="thumbnails mainimage" >
+                            <li class="span5" v-for="pic in pics" >
+                                <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="#">
+                                    <img v-bind:src="pic.p_url" alt="what happen" title="" >
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Right Details-->
+                    <div class="span7">
+                        <div class="row">
+                            <div class="span7" >
+                                <div class="productprice" style="text-align: center;margin: -10px 80px;">
+                                    <div class="productpageprice" >
+                                        <span > ￥ {{price}}</span></div>
+
+                                    <ul class="rate" >
+                                        <li class="on"></li>
+                                        <li class="on"></li>
+                                        <li class="on"></li>
+                                        <li class="off"></li>
+                                        <li class="off"></li>
+                                    </ul>
+                                </div>
+                                <h4 >商品颜色：{{color}}</h4>
+                                <h4 >商品品牌：{{pin}}</h4> <h4 > 商 品 cpu：{{cpu}}</h4> <h4 >商品显卡类型：{{xian}}</h4><h4 >商品尺寸类型：{{size}}</h4>
+                                <h4>商品关注量：{{praise}}</h4>
+                                <h4 >商品数量：{{num}}</h4>
+                                <h4 >商品生产地：{{produce}}</h4><br />
+
+                            </div>
+                            <ul class="productpagecart">
+                                <li><a class="cart" href="#" v-on:click="onJoin">加入购物车</a>
+                                </li>
+                                <li><a class="wish" href="#" >收藏</a>
+                                </li>
+                            </ul>
+                            <!-- Product Description tab & comments-->
+                            <div class="productdesc">
+                                <ul class="nav nav-tabs" id="myTab">
+                                    <li class="active"><a href="#description">Description</a>
+                                    </li>
+                                    <li><a href="#specification">Specification</a>
+                                    </li>
+                                    <li><a href="#review">Review</a>
+                                    </li>
+                                    <li><a href="#producttag">Tags</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="description">
+                                        <h2> {{name}} 介 绍</h2>
+                                        {{detail}} {{detail}}<br>
+                                        <br>
+
+                                    </div>
+                                    <div class="tab-pane " id="specification">
+                                        <ul class="productinfo">
+                                            <li>
+                                                <span class="productinfoleft"> Product Code:</span> Product 16 </li>
+                                            <li>
+                                                <span class="productinfoleft"> Reward Points:</span> 60 </li>
+                                            <li>
+                                                <span class="productinfoleft"> Availability: </span> In Stock </li>
+                                            <li>
+                                                <span class="productinfoleft"> Old Price: </span> $500.00 </li>
+                                            <li>
+                                                <span class="productinfoleft"> Ex Tax: </span> $500.00 </li>
+
+                                            <li>
+                                                <span class="productinfoleft"> Product Code:</span> Product 16 </li>
+                                            <li>
+                                                <span class="productinfoleft"> Reward Points:</span> 60 </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane" id="review">
+                                        <h3>Write a Review</h3>
+                                        <form class="form-vertical">
+                                            <fieldset>
+                                                <div class="control-group">
+                                                    <label class="control-label">Text input</label>
+                                                    <div class="controls">
+                                                        <input type="text" class="span3">
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label">Textarea</label>
+                                                    <div class="controls">
+                                                        <textarea rows="3"  class="span3"></textarea>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <input type="submit" class="btn btn-orange" value="continue">
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="producttag">
+                                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum <br>
+                                            <br>
+                                        </p>
+                                        <ul class="tags">
+                                            <li><a href="#"><i class="icon-tag"></i> Webdesign</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> html</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> html</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> css</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> jquery</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> css</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> jquery</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> Webdesign</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> css</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> jquery</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> Webdesign</a>
+                                            </li>
+                                            <li><a href="#"><i class="icon-tag"></i> html</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="control-group">
-                          <label class="control-label">Textarea</label>
-                          <div class="controls">
-                            <textarea rows="3"  class="span3"></textarea>
-                          </div>
-                        </div>
-                      </fieldset>
-                      <input type="submit" class="btn btn-orange" value="continue">
-                    </form>
-                  </div>
-                  <div class="tab-pane" id="producttag">
-                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum <br>
-                      <br>
-                    </p>
-                    <ul class="tags">
-                      <li><a href="#"><i class="icon-tag"></i> Webdesign</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> html</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> html</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> css</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> jquery</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> css</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> jquery</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> Webdesign</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> css</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> jquery</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> Webdesign</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> html</a>
-                      </li>
-                    </ul>
-                  </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-  </section>
-   </div>
+        </section>
     </div>
-  <!--  Related Products-->
-  <section id="related" class="row">
+</div>
+<!--  Related Products-->
+<section id="related" class="row">
     <div class="container">
-      <h1 class="heading1"><span class="maintext">相 关 产 品</span><span class="subtext">更 多 精 彩</span></h1>
-      <ul class="thumbnails">
-        <li class="span3">
-          <a class="prdocutname" href="product.html">Product Name Here</a>
-          <div class="thumbnail">
-            <span class="sale tooltip-test">Sale</span>
-            <a href="#"><img alt="" src="../imgs/A1484644802022hp1.jpg" style="width: 250px;height: 250px;"></a>
-            <div class="shortlinks">
-              <a class="details" href="#">DETAILS</a>
-              <a class="wishlist" href="#">WISHLIST</a>
-              <a class="compare" href="#">COMPARE</a>
-            </div>
-            <div class="pricetag">
-              <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
-              <div class="price">
-                <div class="pricenew">$4459.00</div>
-                <div class="priceold">$5000.00</div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="span3">
-          <a class="prdocutname" href="product.html">Product Name Here</a>
-          <div class="thumbnail">
-            <a href="#"><img alt="" src="../imgs/A1484663354481lenovo1.jpg" style="width: 250px;height: 250px;"></a>
-            <div class="shortlinks">
-              <a class="details" href="#">DETAILS</a>
-              <a class="wishlist" href="#">WISHLIST</a>
-              <a class="compare" href="#">COMPARE</a>
-            </div>
-            <div class="pricetag">
-              <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
-              <div class="price">
-                <div class="pricenew">$4459.00</div>
-                <div class="priceold">$5000.00</div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="span3">
-          <a class="prdocutname" href="product.html">Product Name Here</a>
-          <div class="thumbnail">
-            <span class="offer tooltip-test" >Offer</span>
-            <a href="#"><img alt="" src="../imgs/A1484644802022hp1.jpg" style="width: 250px;height: 250px;"></a>
-            <div class="shortlinks">
-              <a class="details" href="#">DETAILS</a>
-              <a class="wishlist" href="#">WISHLIST</a>
-              <a class="compare" href="#">COMPARE</a>
-            </div>
-            <div class="pricetag">
-              <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
-              <div class="price">
-                <div class="pricenew">$4459.00</div>
-                <div class="priceold">$5000.00</div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="span3">
-          <a class="prdocutname" href="product.html">Product Name Here</a>
-          <div class="thumbnail">
-            <a href="#"><img alt="" src="../imgs/A1484663354481lenovo1.jpg" style="width: 250px;height: 250px;"></a>
-            <div class="shortlinks">
-              <a class="details" href="#">DETAILS</a>
-              <a class="wishlist" href="#">WISHLIST</a>
-              <a class="compare" href="#">COMPARE</a>
-            </div>
-            <div class="pricetag">
-              <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
-              <div class="price">
-                <div class="pricenew">$4459.00</div>
-                <div class="priceold">$5000.00</div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
+        <h1 class="heading1"><span class="maintext">相 关 产 品</span><span class="subtext">更 多 精 彩</span></h1>
+        <ul class="thumbnails">
+            <li class="span3">
+                <a class="prdocutname" href="product.html">Product Name Here</a>
+                <div class="thumbnail">
+                    <span class="sale tooltip-test">Sale</span>
+                    <a href="#"><img alt="" src="../imgs/A1484644802022hp1.jpg" style="width: 250px;height: 250px;"></a>
+                    <div class="shortlinks">
+                        <a class="details" href="#">DETAILS</a>
+                        <a class="wishlist" href="#">WISHLIST</a>
+                        <a class="compare" href="#">COMPARE</a>
+                    </div>
+                    <div class="pricetag">
+                        <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
+                        <div class="price">
+                            <div class="pricenew">$4459.00</div>
+                            <div class="priceold">$5000.00</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="span3">
+                <a class="prdocutname" href="product.html">Product Name Here</a>
+                <div class="thumbnail">
+                    <a href="#"><img alt="" src="../imgs/A1484663354481lenovo1.jpg" style="width: 250px;height: 250px;"></a>
+                    <div class="shortlinks">
+                        <a class="details" href="#">DETAILS</a>
+                        <a class="wishlist" href="#">WISHLIST</a>
+                        <a class="compare" href="#">COMPARE</a>
+                    </div>
+                    <div class="pricetag">
+                        <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
+                        <div class="price">
+                            <div class="pricenew">$4459.00</div>
+                            <div class="priceold">$5000.00</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="span3">
+                <a class="prdocutname" href="product.html">Product Name Here</a>
+                <div class="thumbnail">
+                    <span class="offer tooltip-test" >Offer</span>
+                    <a href="#"><img alt="" src="../imgs/A1484644802022hp1.jpg" style="width: 250px;height: 250px;"></a>
+                    <div class="shortlinks">
+                        <a class="details" href="#">DETAILS</a>
+                        <a class="wishlist" href="#">WISHLIST</a>
+                        <a class="compare" href="#">COMPARE</a>
+                    </div>
+                    <div class="pricetag">
+                        <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
+                        <div class="price">
+                            <div class="pricenew">$4459.00</div>
+                            <div class="priceold">$5000.00</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="span3">
+                <a class="prdocutname" href="product.html">Product Name Here</a>
+                <div class="thumbnail">
+                    <a href="#"><img alt="" src="../imgs/A1484663354481lenovo1.jpg" style="width: 250px;height: 250px;"></a>
+                    <div class="shortlinks">
+                        <a class="details" href="#">DETAILS</a>
+                        <a class="wishlist" href="#">WISHLIST</a>
+                        <a class="compare" href="#">COMPARE</a>
+                    </div>
+                    <div class="pricetag">
+                        <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
+                        <div class="price">
+                            <div class="pricenew">$4459.00</div>
+                            <div class="priceold">$5000.00</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-  </section>
+</section>
 </div>
 
 <!-- Footer -->
 <footer id="footer">
-  
+
 </footer>
 <!-- javascript
     ================================================== -->
@@ -305,74 +305,88 @@
 <script defer src="../js/custom.js"></script>
 <script>
 
-var id = <%=id%>;
-//alert("g_id:"+id);
+    var id = <%=id%>;
+    //alert("g_id:"+id);
 
-	var vue=new Vue({
-		el:"#m",
-		data:{
-			price:"",
-					name:"xiaomei",
-					num:"",
-					praise:"",
-					detail:"",
-					produce:"",
-					pics:[],
-					pic1:[],
-					color:"",
-					pin:"",
-					cpu:"",
-					xian:"",
-					size:"",
-			id:id,
-			result:[]
-		},
-		http:{
-   headers: {'Content-Type': 'application/x-www-form-urlencoded'}   //1.post请求需设置请求头
-},
-		methods:{
-			getData:function(id){
-						var ob = this;
-						Vue.http.options.emulateJSON = true;                    //2.post请求设置
-						ob.$http.post("/goods/selectgood",{id:id})
-							.then((res) => {//数据请求成功
-								var aa = JSON.parse(res.data);
-							var r = aa.v1;//商品内容
-							var label = aa.v2;//标签内容
-							aa = JSON.parse(label[0].label_con);
-							ob.color=aa.color;
-							ob.pin=aa.pin;
-							ob.cpu=aa.cpu;
-							ob.xian=aa.xian;
-							ob.size=aa.size;
-							ob.id=r[0].id;
-							ob.name = r[0].g_name;
-							ob.price = r[0].g_price;
-							ob.num = r[0].g_num;
-							ob.praise = r[0].g_looknum;
-							ob.detail = r[0].g_detail;
-							ob.produce = r[0].g_product;
-							//下载图片路径
-							ob.$http.post("/goods/spics",{id:id})
-							.then((res) => {//数据请求成功
-								var pic=JSON.parse(res.data);
-								for(var i=0;i<pic.length;i++){
-									pic[i].p_url="../"+pic[i].p_url;
-								}
-							ob.pics=pic;
-							ob.pic1=pic;
-							
-							},(response) =>{
-								alert("error:"+response.data);
-							});
-							
-							},(response) =>{
-								alert("error:"+response.data);
-							});
-		}
-	}
-		});
-		vue.getData(id);
+    var vue=new Vue({
+        el:"#m",
+        data:{
+            price:"",
+            name:"xiaomei",
+            num:"",
+            praise:"",
+            detail:"",
+            produce:"",
+            pics:[],
+            pic1:[],
+            color:"",
+            pin:"",
+            cpu:"",
+            xian:"",
+            size:"",
+            id:id,
+            result:[]
+        },
+        http:{
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}   //1.post请求需设置请求头
+        },
+        methods:{
+            getData:function(id){
+                var ob = this;
+                Vue.http.options.emulateJSON = true;                    //2.post请求设置
+                ob.$http.post("/goods/selectgood",{id:id})
+                    .then((res) => {//数据请求成功
+                    var aa = JSON.parse(res.data);
+                var r = aa.v1;//商品内容
+                var label = aa.v2;//标签内容
+                aa = JSON.parse(label[0].label_con);
+                ob.color=aa.color;
+                ob.pin=aa.pin;
+                ob.cpu=aa.cpu;
+                ob.xian=aa.xian;
+                ob.size=aa.size;
+                ob.id=r[0].id;
+                ob.name = r[0].g_name;
+                ob.price = r[0].g_price;
+                ob.num = r[0].g_num;
+                ob.praise = r[0].g_looknum;
+                ob.detail = r[0].g_detail;
+                ob.produce = r[0].g_product;
+                //下载图片路径
+                ob.$http.post("/goods/spics",{id:id})
+                    .then((res) => {//数据请求成功
+                    var pic=JSON.parse(res.data);
+                for(var i=0;i<pic.length;i++){
+                    pic[i].p_url="../"+pic[i].p_url;
+                }
+                ob.pics=pic;
+                ob.pic1=pic;
+
+            },(response) =>{
+                    alert("error:"+response.data);
+                });
+
+            },(response) =>{
+                    alert("error:"+response.data);
+                });
+            },
+            onJoin:function () {//加入购物车
+                var token =  "2016";
+                var u_id = 1;//默认用户id
+                var g_id  = id;
+                var g_count = 1;//默认购物车数量为1
+                var data = {token:token,u_id:u_id,g_id:g_id,g_count:g_count};
+                Vue.http.post('/api/shopcar/addCar', data).then(function (res) {//Vue get 请求
+                    if (res.data.error_code == 4000) {
+                        alert("加入购物车成功!");
+                    } else {
+                        alert("加入购物车失败");
+                    }
+                });
+            }
+        }
+    });
+    vue.getData(id);
 </script>
 </body>
 </html>

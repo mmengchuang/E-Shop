@@ -19,7 +19,7 @@
 
  请求URL：`http://mmengchen.iask.in:21648/api/orders`
 
- 请求方式:GET
+ 请求方式:POST
 
  需要传递的参数 ：`token uid`
 
@@ -95,7 +95,7 @@
    
   请求URL：`http://mmengchen.iask.in:21648/api/orders/cancelOrder`
 
- 请求方式:GET
+ 请求方式:POST
 
  需要传递的参数 ：`token orderId uid`
 
@@ -121,7 +121,7 @@
 
  请求URL：`http://mmengchen.iask.in:21648/api/shopcar`
 
- 请求方式:GET
+ 请求方式:POST
 
  需要传递的参数 ：`token uid`
 
@@ -143,7 +143,7 @@
 
  请求URL：`http://mmengchen.iask.in:21648/api/shopcar/delCar`
 
- 请求方式:GET
+ 请求方式:POST
 
  需要传递的参数 ：`token carid` 
 
@@ -203,7 +203,7 @@
 
    请求URL http://mmengchen.iask.in:21648/api/users
 
-   请求方式:GET 
+   请求方式:POST 
      
    需要传递的参数 ：`token uid` 
 

@@ -14,13 +14,13 @@ var router = express.Router();
 router.use(db.checkToken);
 
 /** 查询购物车 */
-router.get('/',db.showCar);
+router.post('/',db.showCar);
 
 /** 下单 */
 // router.post('/preOrder',db.preOrder);
 
 /** 删除购物车 */
-router.get('/delCar',db.delCar);
+router.post('/delCar',db.delCar);
 
 /** 添加购物车 */
 router.post('/addCar',db.addCar);

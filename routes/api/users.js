@@ -15,7 +15,7 @@ router.post('/register',db.registerUser);
 router.use(db.checkToken);
 
 /** 查询用户 */
-router.get('/',db.selectUsers);
+router.post('/',db.selectUsers);
 
 /** 修改用户个人信息*/
 router.post('/update',db.updateUsers)
