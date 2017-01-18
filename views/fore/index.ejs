@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>商品主页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+  <script src="../js/vue.js" type="text/javascript"></script>
+		<script src="../js/vue-resource.min.js" type="text/javascript"></script>
+<link href='http://fonts.useso.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Crete+Round' rel='stylesheet' type='text/css'><link href="/stylesheets/bootstrap.css" rel="stylesheet">
+<link href="/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+<link href="/stylesheets/style.css" rel="stylesheet">
+<link href="/stylesheets/flexslider.css" type="text/css" media="screen" rel="stylesheet"  />
+<link href="/stylesheets/jquery.fancybox.css" rel="stylesheet">
+<link href="/stylesheets/cloud-zoom.css" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<!-- fav -->
+<link rel="shortcut icon" href="assets/ico/favicon.html">
+</head>
+<body >
+<!-- Header Start -->
+<header>
+  <div class="headerstrip">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <a href="#" class="logo pull-left"><img src="/img/logo.png" alt="SimpleOne" title="SimpleOne"></a>
+          <!-- Top Nav Start -->
+          <div class="pull-left">
+            <div class="navbar" id="topnav">
+              <div class="navbar-inner">
+                <ul class="nav" >
+                  <li><a class="home active" href="/appindex">首 页</a>
+                  </li>
+                  <li><a class="myaccount" href="#">个人中心</a>
+                  </li>
+                  <li><a class="shoppingcart" href="#">购物车</a>
+                  </li>
+                  <li><a class="checkout" href="#">推荐</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Top Nav End -->
+          <div class="pull-right">
+            <form class="form-search top-search">
+              <input type="text" class="input-medium search-query" placeholder="Search Here…"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Header End -->
+<div id="main">
+<div id="maincontainer" >
+
+  <!-- Slider Start-->
+<section class="slider">
+    <div class="container">
+      <div class="html_carousel">
+        <div id="mainslider6">
+          <div class="slide" style="margin-left: -10px;">
+            <img src="../compics/lenovo1.jpg" alt="联想" title="联想" />
+            <div>
+              <h3>联想</h3>
+              <p>联想电脑生产时是专业化、流水线作业，出厂关都经过严格的质量把关。值得信赖。</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="../compics/apple1.jpg" alt="联想" title="联想"/>
+           <div>
+              <h3>苹果</h3>
+              <p>苹果电脑生产时是专业化、流水线作业，出厂关都经过严格的质量把关。值得信赖。</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="../compics/hp1.jpg" alt="" title=""/>
+            <div>
+              <h3>惠普</h3>
+              <p>惠普电脑生产时是专业化、流水线作业，出厂关都经过严格的质量把关。值得信赖。</p>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>				
+		<div id="pagermainslider6" class="pager"></div>
+      </div>
+    </div>
+  </section>
+  <!-- Slider End-->
+  <!-- Featured Product-->
+  <section id="featured" class="row" >
+    <div class="container" >
+      <h1 class="heading1"><span class="maintext">Featured Products</span><span class="subtext"> See Our Most featured Products</span></h1>
+     
+     <ul class="thumbnails" >
+        
+        <li class="span3" v-for="res in result">
+        	<!--商品简要-->
+          <a class="prdocutname"  style="font:25px;"> {{res.g_name}} </a>
+          <div class="thumbnail">
+            <span class="sale tooltip-test">sale</span>
+            <a :href="'/appindex/detail?g='+res.id"><img alt="" v-bind:src="res.pic" style="height: 200px;width:250px ;"></a>
+            <!--<div class="shortlinks">-->
+             <h4> <a class="details" :href="'/appindex/detail?g='+res.id"> 详 情 &nbsp; &nbsp; &nbsp; &nbsp; </a>
+              <a class="wishlist" href="#">  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 点 赞  </a></h4>
+            
+            <!--</div>-->
+            <div class="pricetag">
+              <span class="spiral"></span><a href="#" class="productcart">添加到购物车</a>
+              <div class="price">
+                <div class="pricenew">${{res.g_price}}</div>
+              </div>
+            </div>
+              <hr style="color: #F3F3F3;" />
+          </div>
+        </li>
+     
+      </ul>
+    </div>
+  </section>
+  
+  <!-- Section All-->
+  <div class="container">
+  <div class="row">
+  <!-- Testimonial-->
+  <div class="span3">
+  <div class="sidewidt">
+          <h2 class="heading2"><span>Testimonials</span></h2>
+          <div class="flexslider" id="testimonialsidebar">
+            <ul class="slides">
+              <li>
+               苹果电脑生产时是专业化、流水线作业，出厂关都经过严格的质量把关。值得信赖。苹果电脑生产时是专业化、流水线作业，出厂关都经过严格的质量把关。
+               值得信赖。苹果电脑生产时是专业化、流水线作业，出厂关都经过严格的质量把关。值得信赖。 <br>
+                <span class="pull-right orange">By : 苹果</span>
+              </li>
+          
+            </ul>
+          </div>
+        </div>
+  </div>
+  <!-- Must Have-->
+  <div class="span3">
+  
+  <div class="sidewidt">
+          <h2 class="heading2"><span>重 磅 来 袭</span></h2>
+          <div class="flexslider" id="mainsliderside">
+            <ul class="slides">
+              <li>
+                <img src="../img/product1a.jpg" alt="" />
+              </li>
+              <li>
+                <img src="../img/product2a.jpg" alt="" />
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+  </div>
+   <h3 style="text-align: center;margin-top: 10px;">精彩内容E-SHOP原创。</h3>
+  </div>
+  </div>
+
+
+</div>
+</div>
+<!-- /maincontainer -->
+
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/respond.min.js"></script>
+<script src="../js/application.js"></script>
+<script src="../js/bootstrap-tooltip.js"></script>
+<script defer src="../js/jquery.fancybox.js"></script>
+<script defer src="../js/jquery.flexslider.js"></script>
+<script type="text/javascript" src="../js/jquery.tweet.js"></script>
+<script  src="../js/cloud-zoom.1.0.2.js"></script>
+<script  type="text/javascript" src="../js/jquery.validate.js"></script>
+<script type="text/javascript"  src="../js/jquery.carouFredSel-6.1.0-packed.js"></script>
+<script type="text/javascript"  src="../js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript"  src="../js/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript"  src="../js/jquery.ba-throttle-debounce.min.js"></script>
+<script defer src="../js/custom.js"></script>
+<script>
+	var vue = new Vue({
+				el: "#main",
+				data: {
+					result: [],
+				},
+				http: {
+   headers: {'Content-Type': 'application/x-www-form-urlencoded'}   //1.post请求需设置请求头
+},
+				methods: {
+					del:function(good) {
+						if(confirm("确定要删除商品:"+good.g_name+" 吗？")){
+							var vm = this;
+						Vue.http.options.emulateJSON = true;                    //2.post请求设置
+						vm.$http.post("/goods/delgoods",{id:good.id})
+							.then((response) => {
+								vm.onloading();
+							},(response) =>{
+								alert("error:"+response.data);
+							});
+						}
+					},
+
+					onloading: function() {
+						var ob = this; //当前对象
+						Vue.http.get('/appindex/singlegood').then(function(res) {
+							//请求成功
+							var aa = JSON.parse(res.data);
+//								alert("result:" +JSON.stringify(aa));
+							for(var i=0;i<aa.length;i++){
+								aa[i].pic="../"+aa[i].g_mpic;
+							}
+							ob.result = aa;
+						}, function(err) {
+							//请求失败
+							alert("err:" + err);
+							throw err;
+						});
+					}
+				}
+			});
+			window.onload = function() {
+					vue.onloading();
+				}
+</script>
+</body>
+</html>

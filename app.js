@@ -17,6 +17,7 @@ var api_users = require('./routes/api/users');
 var api_file = require('./routes/api/file');
 
 //移动端路由配置
+var appindex=require('./routes/aindex/index');
 var app_reg = require('./routes/app/register');
 var app_login = require('./routes/app/login');
 
@@ -46,6 +47,7 @@ app.use("/api/users",api_users);
 app.use("/api/file",api_file);
 
 //移动端配置
+app.use('/appindex',appindex);//客户端对外提供的接口
 app.use("/app/register",app_reg);
 app.use("/app/login",app_login);
 
