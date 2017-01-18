@@ -18,6 +18,7 @@ var api_file = require('./routes/api/file');
 
 //移动端路由配置
 var app_reg = require('./routes/app/register');
+var app_login = require('./routes/app/login');
 
 var app = express();
 
@@ -44,7 +45,9 @@ app.use("/api/shopcar",api_shopcar);
 app.use("/api/users",api_users);
 app.use("/api/file",api_file);
 
+//移动端配置
 app.use("/app/register",app_reg);
+app.use("/app/register",app_login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

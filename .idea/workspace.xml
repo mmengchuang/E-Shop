@@ -1,95 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ab4e424-b836-45ca-be12-c72bee8e5a6d" name="Default" comment="合并分支到master">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/fancybox/blank.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/fancybox/fancybox_loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/fancybox/fancybox_overlay.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/fancybox/fancybox_sprite.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/accrodianicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/addcart.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/arrowcategory.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/avtar.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/banner1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/banner2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/bg_direction_nav.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/brand1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/brand2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/brand3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/brand4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/carousalarrow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/footericon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/glyphicons-halflings-white.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/glyphicons-halflings.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/index3banner.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/index3banner2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/list1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/list2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/list3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/list4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/list5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/list6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/messages.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/offer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/otherdetailicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/otherseperate.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/pricetag.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/pricetagproduct.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/prodcut-40x40.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/prodcutcart.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/product1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/product1a.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/product1big.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/product2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/product2a.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/product2big.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/productblog.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/productpageicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/proudctbanner.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/rate.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/remove.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/sale.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/slderleftimg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/smbanner.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/spiral.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/sprite.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/update.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/img/view.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/assets/ico/favicon.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/css/bootstrap-responsive.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/css/cloud-zoom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/css/fb.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/css/flexslider.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/css/jquery.fancybox.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/image/arrow-down.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/image/arrow-right.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/application.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/bootstrap-tooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/cloud-zoom.1.0.2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/jquery.ba-throttle-debounce.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/jquery.carouFredSel-6.1.0-packed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/jquery.fancybox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/jquery.flexslider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/jquery.mousewheel.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/jquery.touchSwipe.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/jquery.tweet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/jquery.validate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/js/respond.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/app/register.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/app/register.ejs" />
+    <list default="true" id="2ab4e424-b836-45ca-be12-c72bee8e5a6d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/app/login.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/app/login.ejs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/model/db.js.bak" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="$PROJECT_DIR$/npm-debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api/file.js" afterPath="$PROJECT_DIR$/routes/api/file.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/app/register.js" afterPath="$PROJECT_DIR$/routes/app/register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/dbopers/goodsopers.js" afterPath="$PROJECT_DIR$/routes/dbopers/goodsopers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/model/db.js" afterPath="$PROJECT_DIR$/routes/model/db.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/app/register.ejs" afterPath="$PROJECT_DIR$/views/app/register.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -107,11 +29,61 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="login.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/app/login.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="474" column="21" lean-forward="false" selection-start-line="474" selection-start-column="21" selection-end-line="474" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="50" column="35" lean-forward="false" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+            <state relative-caret-position="441">
+              <caret line="47" column="7" lean-forward="false" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/app/register.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/app/register.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="439" column="0" lean-forward="false" selection-start-line="439" selection-start-column="0" selection-end-line="475" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-857">
+              <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -126,6 +98,11 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>vue</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -152,11 +129,14 @@
         <option value="$PROJECT_DIR$/routes/api/users.js" />
         <option value="$PROJECT_DIR$/public/form.html" />
         <option value="$PROJECT_DIR$/routes/api/file.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/app/reg.js" />
-        <option value="$PROJECT_DIR$/routes/app/register.js" />
+        <option value="$PROJECT_DIR$/routes/dbopers/goodsopers.js" />
         <option value="$PROJECT_DIR$/routes/model/db.js" />
         <option value="$PROJECT_DIR$/views/app/register.ejs" />
+        <option value="$PROJECT_DIR$/routes/app/register.js" />
+        <option value="$PROJECT_DIR$/routes/app/login.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/app/login.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
@@ -230,6 +210,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="goods" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="E-Shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="E-Shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="E-Shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="E-Shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -244,7 +260,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -265,13 +285,14 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Workspaces\Projects\E-Shop\views\app" />
+      <recent name="E:\Workspaces\Projects\E-Shop\public\app" />
+      <recent name="E:\Workspaces\Projects\E-Shop" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Workspaces\Projects\E-Shop\routes\api" />
       <recent name="E:\Workspaces\Projects\E-Shop\routes\model" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Workspaces\Projects\E-Shop\public\app" />
-      <recent name="E:\Workspaces\Projects\E-Shop" />
     </key>
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
@@ -522,7 +543,7 @@
       <workItem from="1484621274617" duration="15000" />
       <workItem from="1484632239507" duration="19000" />
       <workItem from="1484662618175" duration="5599000" />
-      <workItem from="1484700844102" duration="1011000" />
+      <workItem from="1484700844102" duration="9408000" />
     </task>
     <task id="LOCAL-00001" summary="添加移动端订单模块和购物车模块接口">
       <created>1484058068584</created>
@@ -559,21 +580,28 @@
       <option name="project" value="LOCAL" />
       <updated>1484574504620</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="添加移动端注册模块">
+      <created>1484701966631</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1484701966631</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72527000" />
+    <option name="totallyTimeSpent" value="80924000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1370" height="745" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1388889" sideWeight="0.4935065" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1388889" sideWeight="0.4935065" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39554796" sideWeight="0.5029542" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23376623" sideWeight="0.4911374" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23287672" sideWeight="0.4911374" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -618,7 +646,8 @@
     <MESSAGE value="添加移动端用户模块(用户注册、查询用户信息和更改用户信息)" />
     <MESSAGE value="添加移动端文件上传模块" />
     <MESSAGE value="更新移动端文件上传模块，设置图片保存路径为/public/upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新移动端文件上传模块，设置图片保存路径为/public/upload" />
+    <MESSAGE value="添加移动端注册模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加移动端注册模块" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -804,13 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/assets/ico/favicon.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -832,20 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/goods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -853,41 +861,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/model/db.js">
+    <entry file="file://$PROJECT_DIR$/routes/goods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="358" column="28" lean-forward="false" selection-start-line="358" selection-start-column="28" selection-end-line="358" selection-end-column="28" />
+        <state relative-caret-position="242">
+          <caret line="44" column="13" lean-forward="true" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dbopers/goodsopers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="262" column="24" lean-forward="true" selection-start-line="262" selection-start-column="24" selection-end-line="263" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/goods/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1452">
+        <state relative-caret-position="88">
+          <caret line="148" column="41" lean-forward="false" selection-start-line="148" selection-start-column="41" selection-end-line="148" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/model/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="359" column="72" lean-forward="true" selection-start-line="359" selection-start-column="72" selection-end-line="359" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/on-headers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-549">
+          <caret line="40" column="35" lean-forward="false" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/app/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/app/register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="3" column="33" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        <state relative-caret-position="198">
+          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/app/register.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="385" column="25" lean-forward="true" selection-start-line="385" selection-start-column="25" selection-end-line="385" selection-end-column="25" />
+        <state relative-caret-position="176">
+          <caret line="439" column="0" lean-forward="false" selection-start-line="439" selection-start-column="0" selection-end-line="475" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-857">
+          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/app/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="474" column="21" lean-forward="false" selection-start-line="474" selection-start-column="21" selection-end-line="474" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="50" column="35" lean-forward="false" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+        <state relative-caret-position="441">
+          <caret line="47" column="7" lean-forward="false" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
           <folding />
         </state>
       </provider>

@@ -11,7 +11,7 @@ var urlencodedParser = bodyParser.urlencoded({extended: false})
 var connect = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '123456',
     database: 'goods',
     port: 3306
 });
@@ -356,7 +356,7 @@ exports.registerUser  = function (req,res) {
                             });
                         }
                         //注册成功
-                        res.writeHead(200, {'Content-Type': 'application/json'});
+                        // res.writeHead(200, {'Content-Type': 'application/json'});
                         var data = {error_code: '4000', msg: "success"};
                         res.end(JSON.stringify(data));
                     });
