@@ -9,6 +9,15 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var goods=require('./routes/goods');
 var admin=require('./routes/admin');
+var orders = require('./routes/admin/orders');
+var admin_users = require('./routes/admin/users');
+var api_orders = require('./routes/api/orders');
+var api_shopcar = require('./routes/api/shopcar');
+var api_users = require('./routes/api/users');
+var api_file = require('./routes/api/file');
+
+//移动端路由配置
+var app_reg = require('./routes/app/register');
 
 var app = express();
 
@@ -28,6 +37,14 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/goods',goods);
 app.use('/admin',admin);
+app.use("/admin/orders",orders);
+app.use("/admin/users",admin_users);
+app.use("/api/orders",api_orders);
+app.use("/api/shopcar",api_shopcar);
+app.use("/api/users",api_users);
+app.use("/api/file",api_file);
+
+app.use("/app/register",app_reg);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

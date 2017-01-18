@@ -327,6 +327,9 @@ exports.registerUser  = function (req,res) {
                     res.end(JSON.stringify(data));
                 });
             }
+            res.writeHead(200, {'Content-Type': 'application/json'});
+            var data = {error_code: '4000', msg: "success"};
+            res.end(JSON.stringify(data))
             connect.query(sql[1],[uname,upwd],function (err,result) {
                 if (err){
                     return connect.rollback(function () {//数据回滚操作
@@ -336,6 +339,7 @@ exports.registerUser  = function (req,res) {
                         res.end(JSON.stringify(data));
                     });
                 }
+                console.log("查询出来的结果"+result);
                 connect.query(sql[2],[result[0].id],function (err,result) {
                     if (err){
                         return connect.rollback(function () {//数据回滚操作

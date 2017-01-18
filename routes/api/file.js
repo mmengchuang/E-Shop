@@ -12,7 +12,7 @@ var path = require('path');
 var router = express.Router();
 
 /** 验证token是否一致 */
-router.use(db.checkToken);
+//router.use(db.checkToken);
 
 /* 文件上传*/
 router.post('/upload', function (req, res) {
