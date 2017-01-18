@@ -22,12 +22,17 @@ router.get('/', function(req, res, next) {
 });
 
 //验证登陆
-router.get('/login', function(req, res, next) {
+router.post('/login', function(req, res, next) {
     //账号 密码  设备id 设备ip
-    var uname = req.query.uname;
-    var upwd = req.query.upwd;
-    var uid = req.query.uid;
-    var uip = req.query.uip;
+    // var uname = req.query.uname;
+    // var upwd = req.query.upwd;
+    // var uid = req.query.uid;
+    // var uip = req.query.uip;
+    var uname = req.body.uname;
+    var upwd = req.body.upwd;
+    var uid = req.body.uid;
+    var uip = req.body.uip;
+    console.log("我的用户你知道"+uname)
     var timestamp = Date.now();
     var str = uname + upwd + uid + uip + timestamp + "a";
 //	console.log(str);

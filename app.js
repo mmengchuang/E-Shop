@@ -47,7 +47,7 @@ app.use("/api/file",api_file);
 
 //移动端配置
 app.use("/app/register",app_reg);
-app.use("/app/register",app_login);
+app.use("/app/login",app_login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
