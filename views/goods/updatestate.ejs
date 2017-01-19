@@ -64,7 +64,7 @@
 						<td>{{res.g_name}}</td>
 						<td>{{res.g_price}}</td>
 						<td>{{res.g_num}}</td>
-						<td>{{res.g_detail}}</td>
+						<td style="width: 450px;">{{res.g_detail}}</td>
 						<td>{{res.color}}</td>
 						<td>{{res.pin}}</td>
 						<td>{{res.cpu}}</td>
@@ -74,9 +74,9 @@
 						<td>{{res.g_product}}</td>
 						<td>{{res.g_state}}</td>
 					<!--	<td>{{res.g_time}}</td>-->
-						<td>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<a :href="'/goods/stateup?g='+res.id">发布</a>&nbsp;&nbsp;&nbsp;
-							<a :href="'/goods/statedown?g='+res.id">下线</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<td width="80px">
+							<a :href="'/goods/stateup?g='+res.id">&nbsp;发布</a>&nbsp;
+							<a :href="'/goods/statedown?g='+res.id">下线</a>
 						</td>
 					</tr>
 				</tbody>

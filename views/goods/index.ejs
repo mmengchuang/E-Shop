@@ -52,7 +52,7 @@
 						<th>商品名称</th>
 						<th>价格</th>
 						<th>数量</th>
-						<th>商品详情</th>
+						<th style="width: 350px;">商品详情</th>
 						<th>商品颜色</th>
 						<th>商品品牌</th>
 						<th>计算机cpu</th>
@@ -62,7 +62,7 @@
 						<th>生产地</th>
 						<th>商品状态</th>
 						<th>发布时间</th>
-						<th>操作</th>
+						<th style="width:90px;">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -82,8 +82,8 @@
 						<td>{{res.g_state}}</td>
 						<td>&nbsp;&nbsp;&nbsp;{{res.g_time}}&nbsp;&nbsp;&nbsp;</td>
 						<td>
-						&nbsp;&nbsp;&nbsp;&nbsp;	<a @click="del(res)">删除</a>&nbsp;&nbsp;&nbsp;
-							<a :href="'/goods/updategoods?g='+res.id">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;	<a @click="del(res)">删除</a>&nbsp;&nbsp;&nbsp;
+							<a :href="'/goods/updategoods?g='+res.id">修改</a>&nbsp;&nbsp;
 						</td>
 					</tr>
 				</tbody>

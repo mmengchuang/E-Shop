@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50519
 File Encoding         : 65001
 
-Date: 2017-01-16 22:32:36
+Date: 2017-01-18 20:47:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -97,36 +97,19 @@ CREATE TABLE `good` (
   `g_product` varchar(200) DEFAULT NULL,
   `g_state` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of good
 -- ----------------------------
-INSERT INTO `good` VALUES ('46', '121', '12321', '1', '1', null, '2017-01-15 19:08:49', '0', '12', '0');
-INSERT INTO `good` VALUES ('47', '小妹妹', '121', '12', '额', null, '2017-01-15 20:11:42', '0', '而非', '0');
-INSERT INTO `good` VALUES ('54', '21', '21', '111', '1', null, '2017-01-16 14:12:12', '0', '1', '0');
-INSERT INTO `good` VALUES ('55', '121', '121', '111', '1', null, '2017-01-16 14:13:19', '0', '1', '0');
-INSERT INTO `good` VALUES ('56', '111', '121', '111', '121', null, '2017-01-16 14:14:46', '0', '1', '0');
-INSERT INTO `good` VALUES ('58', '324', '32', '132', '234', null, '2017-01-16 17:36:15', '0', '324', '0');
-INSERT INTO `good` VALUES ('59', '11', '1', '111', '1', null, '2017-01-16 18:52:31', '0', '1', '0');
-INSERT INTO `good` VALUES ('60', '321', '123', '13', '132', null, '2017-01-16 19:00:14', '0', '123', '0');
-INSERT INTO `good` VALUES ('61', '342', '324', '342', '32', null, '2017-01-16 19:03:19', '0', '322', '0');
-INSERT INTO `good` VALUES ('62', '234', '43', '43', '43', null, '2017-01-16 19:07:11', '0', '43', '0');
-INSERT INTO `good` VALUES ('63', '我去', '123', '231', '213', 'img/A1484567140305smileface.png', '2017-01-16 19:45:24', '0', '321', '0');
-INSERT INTO `good` VALUES ('64', '卧虎藏咯吧', '23', '21', '213', null, '2017-01-16 20:14:33', '0', '12', '0');
-INSERT INTO `good` VALUES ('65', '卧虎藏咯吧', '23', '21', '213', null, '2017-01-16 20:14:59', '0', '12', '0');
-INSERT INTO `good` VALUES ('66', '123', '123', '23', '232', null, '2017-01-16 20:17:25', '0', '231', '0');
-INSERT INTO `good` VALUES ('67', '432', '43', '32', '32', 'img/A1484569476776birty.jpg', '2017-01-16 20:19:20', '0', '322', '0');
-INSERT INTO `good` VALUES ('68', '4', '55', '23', '234', null, '2017-01-16 20:25:02', '0', '231', '0');
-INSERT INTO `good` VALUES ('69', '4', '55', '23', '234', null, '2017-01-16 20:25:43', '0', '231', '0');
-INSERT INTO `good` VALUES ('70', '4', '55', '23', '234', null, '2017-01-16 20:26:23', '0', '231', '0');
-INSERT INTO `good` VALUES ('71', '4', '55', '23', '234', null, '2017-01-16 20:27:45', '0', '231', '0');
-INSERT INTO `good` VALUES ('72', '4', '55', '23', '234', null, '2017-01-16 20:27:47', '0', '231', '0');
-INSERT INTO `good` VALUES ('73', '4', '55', '23', '234', null, '2017-01-16 20:28:40', '0', '231', '0');
-INSERT INTO `good` VALUES ('74', '4', '55', '23', '234', null, '2017-01-16 20:28:58', '0', '231', '0');
-INSERT INTO `good` VALUES ('75', '4', '55', '23', '234', null, '2017-01-16 20:29:00', '0', '231', '0');
-INSERT INTO `good` VALUES ('76', '4', '55', '23', '234', null, '2017-01-16 20:29:19', '0', '231', '0');
-INSERT INTO `good` VALUES ('77', '4', '55', '23', '234', 'img/A1484569782392birty.jpg', '2017-01-16 20:29:21', '0', '231', '0');
+INSERT INTO `good` VALUES ('83', '小芭比', '2332', '121231', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，在股市暴跌的情况下大量吃进高盛的股票，第二年他便获利了1800万美元。这一年，他只有23岁，他开始向成功迈出了坚实的第一步', 'imgs/A1484644802022hp1.jpg', '2017-01-17 17:19:45', '10', '湖南', '1');
+INSERT INTO `good` VALUES ('86', '苹果', '5999', '12132', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，', 'imgs/A1484663085492apple1.jpg', '2017-01-17 22:24:28', '10', '天津', '1');
+INSERT INTO `good` VALUES ('87', '惠普', '121', '211', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，在股市暴跌的情况下大量吃进高盛的股票，第二年他便获利了1800万', 'imgs/A1484663296627hp1.jpg', '2017-01-17 22:28:04', '0', '231', '1');
+INSERT INTO `good` VALUES ('88', '小米', '121', '12', '戴尔决定正式成立Dell电脑公司。', 'imgs/A1484663354481lenovo1.jpg', '2017-01-17 22:28:45', '0', '12', '1');
+INSERT INTO `good` VALUES ('89', '戴尔', '213', '123', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，在股市暴跌的情况下大', 'imgs/A1484663402173lenovo1.jpg', '2017-01-17 22:29:45', '0', '123', '1');
+INSERT INTO `good` VALUES ('90', '324', '231', '213', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，在股市暴跌的情况下大量吃进高盛的股票，第二年他便获', 'imgs/A1484663645943hp1.jpg', '2017-01-17 22:33:16', '0', '213', '1');
+INSERT INTO `good` VALUES ('91', 'hhun', '213213', '123982', '132', 'imgs/A1484730258842apple1.jpg', '2017-01-18 17:04:04', '0', '132', '1');
+INSERT INTO `good` VALUES ('92', '苹果之王', '3999', '500', 't挺好的', 'imgs/A1484735464365apple1.jpg', '2017-01-18 18:30:44', '0', '河南省', '1');
 
 -- ----------------------------
 -- Table structure for label
@@ -144,36 +127,19 @@ CREATE TABLE `label` (
   PRIMARY KEY (`id`),
   KEY `fk_label` (`g_id`),
   CONSTRAINT `fk_label` FOREIGN KEY (`g_id`) REFERENCES `good` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of label
 -- ----------------------------
-INSERT INTO `label` VALUES ('24', '{\"color\":\"灰色\",\"pin\":\"小米\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '46', '灰色', '小米', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('25', '{\"color\":\"灰色\",\"pin\":\"小米\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '47', '灰色', '小米', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('26', '{\"color\":\"红色\",\"pin\":\"小米\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '54', '红色', '小米', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('27', '{\"color\":\"灰色\",\"pin\":\"小米\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '55', '灰色', '小米', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('28', '{\"color\":\"灰色\",\"pin\":\"小米\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '56', '灰色', '小米', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('29', '{\"color\":\"红色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '58', '红色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('30', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '59', '白色', '苹果', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('31', '{\"color\":\"白色\",\"pin\":\"华硕\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '60', '白色', '华硕', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('32', '{\"color\":\"红色\",\"pin\":\"小米\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '61', '红色', '小米', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('33', '{\"color\":\"红色\",\"pin\":\"三星\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '62', '红色', '三星', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('34', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '63', '白色', '苹果', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('35', '{\"color\":\"红色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"17英寸\"}', '64', '红色', '戴尔', '酷睿', '集成显卡', '17英寸');
-INSERT INTO `label` VALUES ('36', '{\"color\":\"红色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"17英寸\"}', '65', '红色', '戴尔', '酷睿', '集成显卡', '17英寸');
-INSERT INTO `label` VALUES ('37', '{\"color\":\"白色\",\"pin\":\"华硕\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '66', '白色', '华硕', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('38', '{\"color\":\"白色\",\"pin\":\"华硕\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"17英寸\"}', '67', '白色', '华硕', '酷睿', '集成显卡', '17英寸');
-INSERT INTO `label` VALUES ('39', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '68', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('40', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '69', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('41', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '70', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('42', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '71', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('43', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '72', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('44', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '73', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('45', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '74', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('46', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '75', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('47', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '76', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
-INSERT INTO `label` VALUES ('48', '{\"color\":\"白色\",\"pin\":\"戴尔\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '77', '白色', '戴尔', '酷睿', '独立显卡', '15英寸');
+INSERT INTO `label` VALUES ('54', '{\"color\":\"红色\",\"pin\":\"小米\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"15英寸\"}', '83', '红色', '小米', '酷睿', '独立显卡', '15英寸');
+INSERT INTO `label` VALUES ('57', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"i5-7200U\",\"xian\":\"核芯显卡\",\"size\":\"22英寸\"}', '86', '白色', '苹果', 'i5-7200U', '核芯显卡', '22英寸');
+INSERT INTO `label` VALUES ('58', '{\"color\":\"红色\",\"pin\":\"惠普\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"17英寸\"}', '87', '红色', '惠普', '酷睿', '集成显卡', '17英寸');
+INSERT INTO `label` VALUES ('59', '{\"color\":\"白色\",\"pin\":\"小米\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"19英寸\"}', '88', '白色', '小米', '酷睿', '集成显卡', '19英寸');
+INSERT INTO `label` VALUES ('60', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"17英寸\"}', '89', '白色', '苹果', '酷睿', '集成显卡', '17英寸');
+INSERT INTO `label` VALUES ('61', '{\"color\":\"红色\",\"pin\":\"华硕\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"17英寸\"}', '90', '红色', '华硕', '酷睿', '集成显卡', '17英寸');
+INSERT INTO `label` VALUES ('62', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"酷睿\",\"xian\":\"核芯显卡\",\"size\":\"19英寸\"}', '91', '白色', '苹果', '酷睿', '核芯显卡', '19英寸');
+INSERT INTO `label` VALUES ('63', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"17英寸\"}', '92', '白色', '苹果', '酷睿', '独立显卡', '17英寸');
 
 -- ----------------------------
 -- Table structure for labelinfo
@@ -184,7 +150,7 @@ CREATE TABLE `labelinfo` (
   `content` varchar(100) DEFAULT NULL,
   `upid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of labelinfo
@@ -216,6 +182,7 @@ INSERT INTO `labelinfo` VALUES ('24', '22英寸', '5');
 INSERT INTO `labelinfo` VALUES ('25', '23英寸', '5');
 INSERT INTO `labelinfo` VALUES ('26', '24英寸', '5');
 INSERT INTO `labelinfo` VALUES ('27', '27英寸', '5');
+INSERT INTO `labelinfo` VALUES ('28', '惠普', '2');
 
 -- ----------------------------
 -- Table structure for orderinfo
@@ -263,25 +230,29 @@ CREATE TABLE `pic` (
   PRIMARY KEY (`id`),
   KEY `pic_fk` (`g_id`),
   CONSTRAINT `pic_fk` FOREIGN KEY (`g_id`) REFERENCES `good` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of pic
 -- ----------------------------
-INSERT INTO `pic` VALUES ('1', '1484567140305smileface.png', '63');
-INSERT INTO `pic` VALUES ('2', '1484567140309sun.png', '63');
-INSERT INTO `pic` VALUES ('3', '1484569167432birty.jpg', '67');
-INSERT INTO `pic` VALUES ('4', '1484569167435bln2.jpg', '67');
-INSERT INTO `pic` VALUES ('5', '1484569167436hjh.jpg', '67');
-INSERT INTO `pic` VALUES ('6', 'img/A1484569476776birty.jpg', '67');
-INSERT INTO `pic` VALUES ('7', 'img/A1484569476780bln2.jpg', '67');
-INSERT INTO `pic` VALUES ('8', 'img/A1484569476780hjh.jpg', '67');
-INSERT INTO `pic` VALUES ('9', 'img/A1484569775324birty.jpg', '77');
-INSERT INTO `pic` VALUES ('10', 'img/A1484569775325bln2.jpg', '77');
-INSERT INTO `pic` VALUES ('11', 'img/A1484569775325hjh.jpg', '77');
-INSERT INTO `pic` VALUES ('12', 'img/A1484569782392birty.jpg', '77');
-INSERT INTO `pic` VALUES ('13', 'img/A1484569782393bln2.jpg', '77');
-INSERT INTO `pic` VALUES ('14', 'img/A1484569782393hjh.jpg', '77');
+INSERT INTO `pic` VALUES ('33', 'imgs/A1484644802022hp1.jpg', '83');
+INSERT INTO `pic` VALUES ('39', 'imgs/A1484663085492apple1.jpg', '86');
+INSERT INTO `pic` VALUES ('40', 'imgs/A1484663085492apple2.jpg', '86');
+INSERT INTO `pic` VALUES ('41', 'imgs/A1484663296627hp1.jpg', '87');
+INSERT INTO `pic` VALUES ('42', 'imgs/A1484663296629hp2.jpg', '87');
+INSERT INTO `pic` VALUES ('43', 'imgs/A1484663296630hp3.jpg', '87');
+INSERT INTO `pic` VALUES ('44', 'imgs/A1484663354481lenovo1.jpg', '88');
+INSERT INTO `pic` VALUES ('45', 'imgs/A1484663354482lenovo2.jpg', '88');
+INSERT INTO `pic` VALUES ('46', 'imgs/A1484663402173lenovo1.jpg', '89');
+INSERT INTO `pic` VALUES ('47', 'imgs/A1484663402173lenovo2.jpg', '89');
+INSERT INTO `pic` VALUES ('48', 'imgs/A1484663645943hp1.jpg', '90');
+INSERT INTO `pic` VALUES ('49', 'imgs/A1484663645944hp2.jpg', '90');
+INSERT INTO `pic` VALUES ('50', 'imgs/A1484730258842apple1.jpg', '91');
+INSERT INTO `pic` VALUES ('51', 'imgs/A1484730258844hp1.jpg', '91');
+INSERT INTO `pic` VALUES ('52', 'imgs/A1484735464365apple1.jpg', '92');
+INSERT INTO `pic` VALUES ('53', 'imgs/A1484735464365big1.jpg', '92');
+INSERT INTO `pic` VALUES ('54', 'imgs/A1484735464365hpbig1.jpg', '92');
+INSERT INTO `pic` VALUES ('55', 'imgs/A1484735464366big2.jpg', '92');
 
 -- ----------------------------
 -- Table structure for recommend

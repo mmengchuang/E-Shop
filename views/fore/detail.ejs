@@ -102,18 +102,18 @@
          <!-- Product Description tab & comments-->
          <div class="productdesc">
                 <ul class="nav nav-tabs" id="myTab">
-                  <li class="active"><a href="#description">Description</a>
+                  <li class="active"><a href="#description">商品介绍</a>
                   </li>
-                  <li><a href="#specification">Specification</a>
+                  <li><a href="#specification">商品属性</a>
                   </li>
-                  <li><a href="#review">Review</a>
+                  <li><a href="#review">进行评论</a>
                   </li>
-                  <li><a href="#producttag">Tags</a>
+                  <li ><a href="#producttag" @click="getComm()"> 评论内容</a>
                   </li>
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="description">
-                    <h2> {{name}} 介 绍</h2>
+                    <h2> {{name}} &nbsp;&nbsp;详情</h2>
                     {{detail}} {{detail}}<br>
                     <br>
                    
@@ -126,67 +126,43 @@
                         <span class="productinfoleft"> Reward Points:</span> 60 </li>
                       <li>
                         <span class="productinfoleft"> Availability: </span> In Stock </li>
-                      <li>
-                        <span class="productinfoleft"> Old Price: </span> $500.00 </li>
-                      <li>
-                        <span class="productinfoleft"> Ex Tax: </span> $500.00 </li>
-                    
-                      <li>
-                        <span class="productinfoleft"> Product Code:</span> Product 16 </li>
-                      <li>
-                        <span class="productinfoleft"> Reward Points:</span> 60 </li>
+                     
                     </ul>
                   </div>
+                 
+                 <!--商品评论AJAXpost请求-->
                   <div class="tab-pane" id="review">
-                    <h3>Write a Review</h3>
-                    <form class="form-vertical">
+                    <h3>欢 迎 评 论</h3>
+                    <form class="form-vertical" >
                       <fieldset>
                         <div class="control-group">
-                          <label class="control-label">Text input</label>
+                          <label class="control-label" >标  题</label>
                           <div class="controls">
-                            <input type="text" class="span3">
+                            <input type="text" class="span3" id="title" v-model="title">
                           </div>
                         </div>
                         <div class="control-group">
-                          <label class="control-label">Textarea</label>
+                          <label class="control-label"> 内 容 </label>
                           <div class="controls">
-                            <textarea rows="3"  class="span3"></textarea>
+                            <textarea rows="3"  class="span3" id="command" v-model="content"></textarea>
                           </div>
                         </div>
                       </fieldset>
-                      <input type="submit" class="btn btn-orange" value="continue">
+                      <input  class="btn btn-orange" value="提交" @click="command()">
                     </form>
                   </div>
                   <div class="tab-pane" id="producttag">
-                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum <br>
-                      <br>
-                    </p>
-                    <ul class="tags">
-                      <li><a href="#"><i class="icon-tag"></i> Webdesign</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> html</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> html</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> css</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> jquery</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> css</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> jquery</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> Webdesign</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> css</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> jquery</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> Webdesign</a>
-                      </li>
-                      <li><a href="#"><i class="icon-tag"></i> html</a>
-                      </li>
-                    </ul>
+                  	<ul>
+                  		<li v-for="comm in comments" ><h4>评论人：{{comm.u_name}}&nbsp;&nbsp;&nbsp;&nbsp;
+                  			&nbsp;&nbsp;&nbsp;&nbsp;{{comm.comm_time}}</h4> 
+                  		<h5 style="color: #000;"><span style="color: #2177C7;">主题: </span>{{comm.com_title}}
+                  			&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #2177C7;">内容:</span> {{comm.comment}}</h5>
+                  		<hr style=" height: 1px;color: #F2F2F2;"></hr>
+                  		</li>
+                  	</ul>
+                    
+                    <br>
+                   
                   </div>
                 </div>
               </div>
@@ -318,14 +294,17 @@ var id = <%=id%>;
 					detail:"",
 					produce:"",
 					pics:[],
-					pic1:[],
 					color:"",
 					pin:"",
 					cpu:"",
 					xian:"",
 					size:"",
+					title:"",
+					content:"",
 			id:id,
-			result:[]
+			result:[],
+			comments:[],
+			
 		},
 		http:{
    headers: {'Content-Type': 'application/x-www-form-urlencoded'}   //1.post请求需设置请求头
@@ -360,8 +339,7 @@ var id = <%=id%>;
 									pic[i].p_url="../"+pic[i].p_url;
 								}
 							ob.pics=pic;
-							ob.pic1=pic;
-							
+							ob.getComm();
 							},(response) =>{
 								alert("error:"+response.data);
 							});
@@ -369,7 +347,55 @@ var id = <%=id%>;
 							},(response) =>{
 								alert("error:"+response.data);
 							});
-		}
+		},
+		//商品评论
+		command:function() {
+						if($("#title").val()==""){
+						alert("请输入标题！");
+						return;
+						}else if($("#command").val()==""){
+							alert("评论内容不能为空！");
+							return;
+						}else{
+							var vm = this;
+						Vue.http.options.emulateJSON = true;//2.post请求设置
+						vm.$http.post("/goods/command",{title:$("#title").val(),content:$("#command").val(),id:vm.id})
+							.then((res) => {
+								if(res.data=="no"){
+									alert("评论失败，您还没有购买此商品。");
+								}else{
+								vm.title="";
+								vm.content="";
+									
+									alert("评论成功");
+									
+								}
+								
+							},(response) =>{
+								alert("error:"+response.data);
+							});
+						}
+					},
+			//获取对该商品的所有的评论
+			getComm:function(){
+				var ob = this; //当前对象
+				Vue.http.options.emulateJSON=true;
+				ob.$http.post('/goods/queryComms',{g_id:ob.id})
+				.then((res) =>{
+					var r=res.data;
+					//处理时间
+					for(var i = 0; i < r.length; i++) {
+			var time = r[i].comm_time;
+var hour=parseInt(time.split("T")[1].substr(0,2))+8;
+time=time.split("T")[0]+" "+hour+time.split("T")[1].substring(2,8);
+								r[i].comm_time = time.replace("T", " ");
+								r[i].comm_time = r[i].comm_time.replace(".000Z", " ");}
+					 ob.comments=r;
+//					alert("获取数据"+ob.comments[0].u_name);
+				},(resp) =>{
+					alert("error:"+resp.data);
+				});
+			}
 	}
 		});
 		vue.getData(id);

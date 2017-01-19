@@ -57,7 +57,7 @@
   	<h1 style="text-align: center;color: white;margin-top: 20px;">商品图片添加页面</h1>
    <form action="/goods/upload" enctype="multipart/form-data" method="post">
    	<input name="gid" value="<%=goodid%>" hidden="hidden" />
-  <span style="color: white;">  请选择商品图片：</span><input type="file" id="img" name="img" accept="image/*" multiple="multiple"/><br><br><br>
+  <span style="color: white;">  请选择商品图片(大于2张)：</span><input type="file" id="img" name="img" accept="image/*" multiple="multiple"/><br><br><br>
     <div id="images" ></div>
     <input type="submit" value="确认提交" style="position: absolute;margin-top: 200px;"/>
     </form>

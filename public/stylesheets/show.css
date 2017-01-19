@@ -11,7 +11,7 @@
 			#t1{
 				background: white;
 				border-radius: 3px;
-				width:800px;
+				width:auto;
 				margin: 50px auto;
 				border: solid 1px black;
 				column-count: 6;
@@ -29,7 +29,7 @@
 				border-right: solid 1px black;
 			}
 			
-			#t1 tr{height: 30px;
+			#t1 tr{height: 40px;
 				border: solid 1px black;
 				background-color: #F9F9F9;
 			}
