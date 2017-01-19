@@ -32,7 +32,6 @@ router.post('/login', function(req, res, next) {
     var upwd = req.body.upwd;
     var uid = req.body.uid;
     var uip = req.body.uip;
-    console.log("我的用户你知道"+uname)
     var timestamp = Date.now();
     var str = uname + upwd + uid + uip + timestamp + "a";
 //	console.log(str);
@@ -55,7 +54,8 @@ router.post('/login', function(req, res, next) {
 //					console.log("token:"+newStr);
                     //用户信息正确
                     var sql1 = "update user set u_token=? where id=?";
-                    var u_params = [newStr, result[0].id];
+                    var uid  = result[0].id;
+                    var u_params = [newStr, uid];
                     conn.query(sql1, u_params, function(err, result) {
                         if(err) {
                             throw err;
@@ -63,7 +63,8 @@ router.post('/login', function(req, res, next) {
                         } else {
                             res.json({
                                 "code": 1,
-                                "msg": newStr
+                                "msg": newStr,
+                                "uid":uid
                             });
                         }
                     });

@@ -132,45 +132,45 @@ exports.preOrder = function (req, res) {
                                             });
                                         } else {
                                             return connect.rollback(function () {//数据回滚操作
-                                                //throw err;
-                                                res.writeHead(200, {'Content-Type': 'application/json'});
-                                                var data = {error_code: '4013', msg: "下单失败" + err};
-                                                res.end(JSON.stringify(data));
+                                                throw err;
+                                                // res.writeHead(200, {'Content-Type': 'application/json'});
+                                                // var data = {error_code: '4013', msg: "下单失败" + err};
+                                                // res.end(JSON.stringify(data));
                                             });
                                         }
                                     })
                                 } else {
                                     return connect.rollback(function () {//数据回滚操作
-                                        //throw err;
-                                        res.writeHead(200, {'Content-Type': 'application/json'});
-                                        var data = {error_code: '4011', msg: "下单失败" + err};
-                                        res.end(JSON.stringify(data));
+                                        throw err;
+                                        // res.writeHead(200, {'Content-Type': 'application/json'});
+                                        // var data = {error_code: '4011', msg: "下单失败" + err};
+                                        // res.end(JSON.stringify(data));
                                     });
                                 }
                             });
                         } else {
                             return connect.rollback(function () {//数据回滚操作
-                                //throw err;
-                                res.writeHead(200, {'Content-Type': 'application/json'});
-                                var data = {error_code: '4013', msg: "下单失败" + err};
-                                res.end(JSON.stringify(data));
+                                throw err;
+                                // res.writeHead(200, {'Content-Type': 'application/json'});
+                                // var data = {error_code: '4013', msg: "下单失败" + err};
+                                // res.end(JSON.stringify(data));
                             });
                         }
                     });
                 } else {
                     return connect.rollback(function () {//数据回滚操作
-                        //throw err;
-                        res.writeHead(200, {'Content-Type': 'application/json'});
-                        var data = {error_code: '4013', msg: "商品库存不足"};
-                        res.end(JSON.stringify(data));
+                        throw err;
+                        // res.writeHead(200, {'Content-Type': 'application/json'});
+                        // var data = {error_code: '4013', msg: "商品库存不足"};
+                        // res.end(JSON.stringify(data));
                     });
                 }
             } else {
                 return connect.rollback(function () {//数据回滚操作
-                    //throw err;
-                    res.writeHead(200, {'Content-Type': 'application/json'});
-                    var data = {error_code: '4013', msg: "下单失败" + err};
-                    res.end(JSON.stringify(data));
+                    throw err;
+                    // res.writeHead(200, {'Content-Type': 'application/json'});
+                    // var data = {error_code: '4013', msg: "下单失败" + err};
+                    // res.end(JSON.stringify(data));
                 });
             }
         });
@@ -201,7 +201,8 @@ exports.showCar = function (req, res) {
     console.log("我被执行了");
     // var uid = req.query.uid;
     var uid = req.body.uid;
-    var sql = "select * from cart,cartinfo,good where cart.id = cartinfo.c_id and cartinfo.g_id = good.id and cart.u_id = " + uid;
+    var sql = "select cart.id,cartinfo.g_count,good.id g_id,good.g_name,good.g_mpic,good.g_price from cart,cartinfo,good where cart.id = cartinfo.c_id and " +
+        "cartinfo.g_id = good.id and cart.u_id = " + uid;
     connect.query(sql, function (err, result) {
         if (err == null) {
             res.writeHead(200, {'Content-Type': 'application/json'});
@@ -219,17 +220,24 @@ exports.showCar = function (req, res) {
 /** 删除购物车*/
 exports.delCar = function (req, res) {
     var uid = req.body.uid;
-    var orderId = req.body.orderId;
-    var sql = "del from cart where uid =? and id =?";
-    connect.query(sql, [uid, orderId], function (err, result) {
+    var cartid = req.body.cartid;
+    var sql = ["delete from cart where u_id =? and id =?","delete from cartinfo where c_id =?"];
+    connect.query(sql[0], [uid, cartid], function (err, result) {
         if (err == null) {
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            var data = {error_code: '4000', msg: 'success'};
-            res.end(JSON.stringify(data));
+            connect.query(sql[1], [cartid],function (err ,reslut) {
+                if (err==null){
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    var data = {error_code: '4000', msg: 'success'};
+                    res.end(JSON.stringify(data));
+                } else {
+                    throw err;
+                }
+            });
         } else {
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            var data = {error_code: '4013', msg: err};
-            res.end(JSON.stringify(data));
+            // res.writeHead(200, {'Content-Type': 'application/json'});
+            // var data = {error_code: '4013', msg: err};
+            // res.end(JSON.stringify(data));
+            throw err;
         }
     });
 

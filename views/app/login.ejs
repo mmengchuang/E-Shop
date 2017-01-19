@@ -261,20 +261,6 @@
                 <div class="span9">
                     <h1 class="heading1"><span class="maintext">Login</span><span class="subtext">First Login here to View All your account information</span>
                     </h1>
-                    <section class="newcustomer">
-                        <h2 class="heading2">New Customer </h2>
-                        <div class="loginbox">
-                            <h4 class="heading4"> Register Account</h4>
-                            <p>By creating an account you will be able to shop faster, be up to date on an order's
-                                status, and keep track of the orders you have previously made.</p>
-                            <br>
-                            <p>By creating an account you will be able to shop faster, be up to date on an order's
-                                status, and keep track of the orders you have previously made.</p>
-                            <br>
-                            <br>
-                            <a href="#" class="btn btn-orange">Continue</a>
-                        </div>
-                    </section>
                     <section class="returncustomer">
                         <h2 class="heading2">Returning Customer </h2>
                         <div class="loginbox" id="mymain">
@@ -307,6 +293,7 @@
                                         </div>
                                     </div>
                                     <a class="" href="#">忘记密码</a>
+                                    <a class="" href="/app/register">注册新用户</a>
                                     <br>
                                     <br>
                                     <a href="#" class="btn btn-orange" v-on:click="onLogin">登陆</a>
@@ -315,43 +302,6 @@
                         </div>
                     </section>
                 </div>
-
-                <!-- Sidebar Start-->
-                <aside class="span3">
-                    <div class="sidewidt">
-                        <h2 class="heading2"><span>Account</span></h2>
-                        <ul class="nav nav-list categories">
-                            <li>
-                                <a href="#"> My Account</a>
-                            </li>
-                            <li>
-                                <a href="#">Edit Account</a>
-                            </li>
-                            <li>
-                                <a href="#">Password</a>
-                            </li>
-                            <li>
-                                <a href="#">Wish List</a>
-                            </li>
-                            <li><a href="#">Order History</a>
-                            </li>
-                            <li><a href="#">Downloads</a>
-                            </li>
-                            <li><a href="#">Returns</a>
-                            </li>
-                            <li>
-                                <a href="#"> Transactions</a>
-                            </li>
-                            <li>
-                                <a href="category.html">Newsletter</a>
-                            </li>
-                            <li>
-                                <a href="category.html">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
-                <!-- Sidebar End-->
             </div>
         </div>
     </section>
@@ -420,9 +370,7 @@
     <section class="copyrightbottom">
         <div class="container">
             <div class="row">
-                <div class="span6"> All images are copyright to their owners. More Templates <a
-                            href="http://www.777moban.com/" target="_blank" title="777模板">777模板</a> - Collect from <a
-                            href="http://www.777moban.com/" title="网页模板" target="_blank">网页模板</a></div>
+                <div class="span6"> All images are copyright to their owners. More Templates </div>
                 <div class="span6 textright"> ShopSimple @ 2012</div>
             </div>
         </div>
@@ -458,17 +406,28 @@
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}   //1.post请求需设置请求头
         },
         methods: {
+            onloading: function () {//页面加载时,获取用户（设备名和ip地址）的相关信息
+                getjsonData()
+//                var device = getjsonData();
+//                alert("用户的信息为"+device.IMEI+" "+device.IP);
+//                //填充网页
+//                $("#uid").val =  "2015";
+//                $("#uip").val =  "201566";
+            },
             onLogin: function (event) {
                 //获取表单参数
                 var uid = $("#uid").val();
                 var uip = $("#uip").val();
                 var uname = $("#uname").val();
                 var upwd = $("#upwd").val();
-                var data = {uid:uid,uid:uip,uname: uname, upwd: upwd}
+                var data = {uid: uid, uid: uip, uname: uname, upwd: upwd}
                 //请求数据
                 Vue.http.post('/login', data).then(function (res) {//Vue get 请求
                     if (res.data.code == 1) {
                         alert("成功")
+                        var res_data = res.data.msg;
+                        var uid = res.data.uid;
+                        saveTokenToAndroid(res_data, uid);//将用户token和用户id传给Android端
                     } else {
                         alert("失败")
                     }
@@ -476,6 +435,26 @@
             }
         }
     });
+    //此方法是调用了android的方法saveTokenToAndroid()；
+    function saveTokenToAndroid(token) {
+        //调用android中的方法
+        window.jsObj.saveToken(token);
+    }
+
+    function getjsonData() {//获取Android中json数据（设备id和用户ip）
+        window.jsObj.jsonimeitohtml();
+        alert("666666666666666666");
+//        var obj = eval("(" + result + ")");//解析json字符串
+//        alert("获取数据的长度为"+obj.length);
+//        for (i = 0; i < obj.length; i++) {
+//            var device = obj[i];
+//            alert("daadsadd");
+//        }
+//        return device;
+    }
+    window.onload = function () {
+        vue.onloading();
+    }
 </script>
 </body>
 </html>
