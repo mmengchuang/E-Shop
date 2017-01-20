@@ -135,7 +135,7 @@
 <script defer src="../js/custom.js"></script>
 <script>
 	var uid= <%=id%> ;
-alert("修改密码:"+uid);
+//alert("修改密码:"+uid);
 function check(){
 	var boo=false;
 	  if($("#u_old").val()=="" ||$("#u_new").val()==""||$("#u_repwd").val()==""){
@@ -157,11 +157,11 @@ function check(){
 								}else if($("#u_new").val()!=$("#u_repwd").val()){
 										
 												boo=false;
-													alert("您好,两次密码不一致!"+boo);
+												alert("您好,两次密码不一致!"+boo);
 									return boo;
 								}else{
 										boo=true;
-											alert("ok"+boo);
+											alert("密码修改成功!");
 									return boo;
 								}
 					},
@@ -169,7 +169,7 @@ function check(){
 						alert("密码判定错误：" + err);
 					}
 });
-alert("lll:"+boo);
+//alert("lll:"+boo);
 return boo;
 }
 	
