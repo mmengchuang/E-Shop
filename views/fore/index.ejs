@@ -22,7 +22,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 <!-- fav -->
-<link rel="shortcut icon" href="assets/ico/favicon.html">
+<link rel="shortcut icon" href="assets/ico/favicon.ejs">
 </head>
 <body >
 <!-- Header Start -->
@@ -39,7 +39,7 @@
                 <ul class="nav" >
                   <li><a class="home active" href="/appindex">首 页</a>
                   </li>
-                  <li><a class="myaccount" href="#">个人中心</a>
+                  <li><a class="myaccount" href="/users?uid=1">个人中心</a>
                   </li>
                   <li><a class="shoppingcart" href="#">购物车</a>
                   </li>
@@ -203,18 +203,6 @@
    headers: {'Content-Type': 'application/x-www-form-urlencoded'}   //1.post请求需设置请求头
 },
 				methods: {
-					del:function(good) {
-						if(confirm("确定要删除商品:"+good.g_name+" 吗？")){
-							var vm = this;
-						Vue.http.options.emulateJSON = true;                    //2.post请求设置
-						vm.$http.post("/goods/delgoods",{id:good.id})
-							.then((response) => {
-								vm.onloading();
-							},(response) =>{
-								alert("error:"+response.data);
-							});
-						}
-					},
 
 					onloading: function() {
 						var ob = this; //当前对象

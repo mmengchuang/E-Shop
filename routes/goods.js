@@ -64,5 +64,11 @@ router.post('/spics',function(req,res,next){
 router.post('/updategoodsa',function(req,res,next){
     dboper.update(req,res);
 });
-
+//商品评论
+router.post('/command',function(req,res,next){
+	dboper.con(req,res);
+});
+router.post('/queryComms',function(req,res,next){
+	dboper.queryComments(req,res);
+});
 module.exports=router;

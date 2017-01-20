@@ -11,8 +11,11 @@ var router = express.Router();
 /** 注册用户 */
 router.post('/register',db.registerUser);
 
+
+
 /** 验证token是否一致 */
 router.use(db.checkToken);
+
 
 /** 查询用户 */
 router.post('/',db.selectUsers);

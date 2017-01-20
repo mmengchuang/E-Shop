@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//服务器端路由配置
 var index = require('./routes/index');
 var users = require('./routes/users');
 var goods=require('./routes/goods');
@@ -13,8 +14,9 @@ var orders = require('./routes/admin/orders');
 var admin_users = require('./routes/admin/users');
 var api_orders = require('./routes/api/orders');
 var api_shopcar = require('./routes/api/shopcar');
-var api_users = require('./routes/api/users');
 var api_file = require('./routes/api/file');
+
+var api_users = require('./routes/api/users');
 
 //移动端路由配置
 var appindex=require('./routes/aindex/index');
@@ -45,9 +47,9 @@ app.use("/admin/orders",orders);
 app.use("/admin/users",admin_users);
 app.use("/api/orders",api_orders);
 app.use("/api/shopcar",api_shopcar);
+
 app.use("/api/users",api_users);
 app.use("/api/file",api_file);
-
 //移动端配置
 app.use('/appindex',appindex);//客户端对外提供的接口
 app.use('/app/shopcar',appshopcar);//客户端对外提供的接口

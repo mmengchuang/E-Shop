@@ -7,7 +7,7 @@ var mysql = require("mysql");
 var conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '123456',
+    password: 'root',
     database: 'goods',
     port: '3306'
 });
@@ -271,7 +271,7 @@ exports.showdata = function(req, res) {
 //查询某个商品的所有图片
 exports.spics=function(req,res){
     var id=req.body.id;
-    console.log("aaa"+id);
+//  console.log("aaa"+id);
     var spic = "select p_url from pic where g_id="+id;
     conn.query(spic, function(err, result) {
         if(err) {
@@ -279,7 +279,7 @@ exports.spics=function(req,res){
             return;
         } else {
             var re=JSON.stringify(result);
-            console.log(re);
+//          console.log(re);
             res.send(re);
         }
     });
@@ -385,6 +385,73 @@ exports.delgoods = function(req, res) {
         });
     });
 }
+//评论
+exports.con=function(req,res){
+	var a=0;
+	
+	var userid=1;//假设用户id是1
+	
+	var title=req.body.title;
+	var content=req.body.content;
+	var id=req.body.id;
+	var nowTime1 = getNowFormatData();
+	console.log("***"+title+"--"+content+"id:"+id);
+	//假设用户id是1         判断用户是否有评论权限
+	var sql1="select g_id from orders os,orderinfo o where u_id=? and os.id=o.o_id";
+	var params=[userid];
+	conn.query(sql1,params, function(err, result) {
+            if(err) {
+                console.log("goods---err1:" + err);
+                conn.rollback(function() {
+                    throw err;
+                });
+            } else {
+            	//获取用户购买的所有商品id
+            	for(var i=0;i<result.length;i++){
+//          		console.log("XXXXXid:" + id+"result[i]："+result[i].g_id);
+            		if(result[i].g_id==id){
+            			a=1;//用户购买过商品
+            			//用户可以评论
+//          			console.log("XXXXX:" + id);
+            			var sql2="insert into comments(u_id,g_id,comment,comm_time,com_title)values(?,?,?,?,?)";
+	var params=[userid,id,content,nowTime1,title];
+	conn.query(sql2,params, function(err, result) {
+            		if(err) {
+                console.log("goods---err1:" + err);
+                conn.rollback(function() {
+                    throw err;
+                });
+            } else {
+            	console.log("aaaaa");
+            	res.send('ok');
+            }
+            		});
+	                }
+            		console.log("**"+result[i]);
+             }
+            	if(a==0){
+            		res.send("no");
+            	}
+         }
+});
+}
+//获取对该商品的所有评论信息
+exports.queryComments=function(req,res){
+var gid=req.body.g_id;
+var scomments="select u_name,comment,comm_time,com_title from comments c,user u where g_id="+gid;
+conn.query(scomments,function(err,result){
+	if(err){
+		console.log("查询评论出错："+err);
+	}else{
+//		console.log("评论长度："+result.length);
+		res.send(result);
+	}
+});
+	
+
+}
+
+
 
 function strToJson(str) {
     var json = eval('(' + str + ')');
