@@ -7,7 +7,7 @@ var mysql = require("mysql");
 var conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '123456',
     database: 'goods',
     port: '3306'
 });
@@ -29,21 +29,22 @@ router.post('/login', function(req, res, next) {
     // var uid = req.query.uid;
     // var uip = req.query.uip;
     var uname = req.body.uname;
+    console.log("我的信息"+uname);
     var upwd = req.body.upwd;
     var uid = req.body.uid;
     var uip = req.body.uip;
     var timestamp = Date.now();
     var str = uname + upwd + uid + uip + timestamp + "a";
-//	console.log(str);
-    var sql = "select * from user where u_name=" + uname;
+	console.log(str);
+    var sql = "select * from user where u_name = " + uname;
     conn.query(sql, function(err, result) {
         if(err) {
             throw err;
             return;
         } else {
-//			console.log("用户名:"+result[0].u_name+"密码："+result[0].u_pwd);
             if(result.length > 0) {
-                if(!result[0].u_pwd==upwd) {
+                console.log("用户名:"+result[0].u_name+"密码："+result[0].u_pwd);
+                if(result[0].u_pwd!=upwd) {
                     res.json({
                         "code": -2,
                         "msg": "您好!密码输入错误,请重新输入"

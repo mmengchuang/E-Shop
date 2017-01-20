@@ -40,13 +40,13 @@
                         <div class="navbar" id="topnav">
                             <div class="navbar-inner">
                                 <ul class="nav">
-                                    <li><a class="home active" href="#">主页</a>
+                                    <li><a class="home active" href="/appindex">首 页</a>
                                     </li>
-                                    <li><a class="myaccount" href="#">个人中心</a>
+                                    <li><a class="myaccount" href="/users?uid=1">个人中心</a>
                                     </li>
-                                    <li><a class="shoppingcart" href="#">购物车</a>
+                                    <li><a class="shoppingcart" href="/app/shopcar">购物车</a>
                                     </li>
-                                    <li><a class="checkout" href="#">我的订单</a>
+                                    <li><a class="checkout" href="/app/orders">我的订单</a>
                                     </li>
                                 </ul>
                             </div>
@@ -268,16 +268,16 @@
                             <!--登陆表单-->
                             <form class="form-vertical">
                                 <fieldset>
-                                    <div class="control-group">
+                                    <div class="control-group" style="display:none;">
                                         <label class="control-label">用户设备名</label>
                                         <div class="controls">
-                                            <input type="text" class="span3" id="uid" name="uid">
+                                            <input type="text" class="span3" id="uid" name="uid" readonly>
                                         </div>
                                     </div>
-                                    <div class="control-group">
+                                    <div class="control-group" style="display:none;">
                                         <label class="control-label">用户ip</label>
                                         <div class="controls">
-                                            <input type="text" class="span3" id="uip" name="uip">
+                                            <input type="text" class="span3" id="uip" name="uip" readonly>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -370,7 +370,7 @@
     <section class="copyrightbottom">
         <div class="container">
             <div class="row">
-                <div class="span6"> All images are copyright to their owners. More Templates </div>
+                <div class="span6"> All images are copyright to their owners. More Templates</div>
                 <div class="span6 textright"> ShopSimple @ 2012</div>
             </div>
         </div>
@@ -407,12 +407,9 @@
         },
         methods: {
             onloading: function () {//页面加载时,获取用户（设备名和ip地址）的相关信息
-                getjsonData()
-//                var device = getjsonData();
-//                alert("用户的信息为"+device.IMEI+" "+device.IP);
-//                //填充网页
-//                $("#uid").val =  "2015";
-//                $("#uip").val =  "201566";
+                var device = getjsonData();
+                $("#uid")[0].value = device.IMEI;
+                $("#uip")[0].value = device.IP;
             },
             onLogin: function (event) {
                 //获取表单参数
@@ -425,32 +422,32 @@
                 Vue.http.post('/login', data).then(function (res) {//Vue get 请求
                     if (res.data.code == 1) {
                         alert("成功")
+                        window.location.href = "/appindex";
                         var res_data = res.data.msg;
                         var uid = res.data.uid;
                         saveTokenToAndroid(res_data, uid);//将用户token和用户id传给Android端
+                    } else if (res.data.code == -2) {
+                        alert("密码错误！")
                     } else {
-                        alert("失败")
+                        alert("账号不存在！")
                     }
                 });
             }
         }
     });
     //此方法是调用了android的方法saveTokenToAndroid()；
-    function saveTokenToAndroid(token) {
+    function saveTokenToAndroid(token, uid) {
         //调用android中的方法
-        window.jsObj.saveToken(token);
+        window.jsObj.saveToken(token, uid);
     }
 
     function getjsonData() {//获取Android中json数据（设备id和用户ip）
-        window.jsObj.jsonimeitohtml();
-        alert("666666666666666666");
-//        var obj = eval("(" + result + ")");//解析json字符串
-//        alert("获取数据的长度为"+obj.length);
-//        for (i = 0; i < obj.length; i++) {
-//            var device = obj[i];
-//            alert("daadsadd");
-//        }
-//        return device;
+        var result = window.jsObj.jsonimeitohtml();
+        var obj = eval("(" + result + ")");//解析json字符串
+        for (i = 0; i < obj.length; i++) {
+            var device = obj[i];
+        }
+        return device;
     }
     window.onload = function () {
         vue.onloading();

@@ -247,8 +247,13 @@
   请求成功返回 `{"filesUrl":["/upload/2015.jpg"],"success":1,"error":0}`
    
   移动端请求样例
-  
+  添加获取移动端设备信息(imei 和 ip)和用户信息功能(uid token)
 
 error_code 为4000为成功代码
 
-error_code 为4013为错误代码                                             
+error_code 为4013为错误代码           
+
+
+-------------
+
+移动端APP地址：https://github.com/mmengchuang/E-Shop-APP                                  

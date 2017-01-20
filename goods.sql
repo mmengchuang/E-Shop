@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50519
 File Encoding         : 65001
 
-Date: 2017-01-18 20:47:19
+Date: 2017-01-20 15:19:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -74,12 +74,20 @@ CREATE TABLE `comments` (
   `g_id` int(11) NOT NULL,
   `comment` varchar(500) DEFAULT NULL,
   `comm_time` datetime DEFAULT NULL,
+  `com_title` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comments
 -- ----------------------------
+INSERT INTO `comments` VALUES ('1', '1', '90', '用着感觉很好', '2017-01-18 23:40:34', '很好');
+INSERT INTO `comments` VALUES ('2', '1', '90', '很好', '2017-01-19 09:16:12', '好评');
+INSERT INTO `comments` VALUES ('3', '1', '90', '产品很好使，欢迎欢迎浏览。', '2017-01-19 11:08:02', '最好');
+INSERT INTO `comments` VALUES ('4', '1', '90', '产品很好使，欢迎欢迎浏览。', '2017-01-19 11:08:23', '最好');
+INSERT INTO `comments` VALUES ('5', '1', '90', '俄武器', '2017-01-19 11:11:55', '俄武器');
+INSERT INTO `comments` VALUES ('6', '1', '90', '俄武器', '2017-01-19 11:12:02', '俄武器');
+INSERT INTO `comments` VALUES ('9', '1', '90', '他天天天天', '2017-01-19 11:29:05', '灌灌灌灌灌');
 
 -- ----------------------------
 -- Table structure for good
@@ -97,19 +105,15 @@ CREATE TABLE `good` (
   `g_product` varchar(200) DEFAULT NULL,
   `g_state` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of good
 -- ----------------------------
-INSERT INTO `good` VALUES ('83', '小芭比', '2332', '121231', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，在股市暴跌的情况下大量吃进高盛的股票，第二年他便获利了1800万美元。这一年，他只有23岁，他开始向成功迈出了坚实的第一步', 'imgs/A1484644802022hp1.jpg', '2017-01-17 17:19:45', '10', '湖南', '1');
-INSERT INTO `good` VALUES ('86', '苹果', '5999', '12132', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，', 'imgs/A1484663085492apple1.jpg', '2017-01-17 22:24:28', '10', '天津', '1');
-INSERT INTO `good` VALUES ('87', '惠普', '121', '211', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，在股市暴跌的情况下大量吃进高盛的股票，第二年他便获利了1800万', 'imgs/A1484663296627hp1.jpg', '2017-01-17 22:28:04', '0', '231', '1');
-INSERT INTO `good` VALUES ('88', '小米', '121', '12', '戴尔决定正式成立Dell电脑公司。', 'imgs/A1484663354481lenovo1.jpg', '2017-01-17 22:28:45', '0', '12', '1');
-INSERT INTO `good` VALUES ('89', '戴尔', '213', '123', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，在股市暴跌的情况下大', 'imgs/A1484663402173lenovo1.jpg', '2017-01-17 22:29:45', '0', '123', '1');
-INSERT INTO `good` VALUES ('90', '324', '231', '213', '戴尔决定正式成立Dell电脑公司。1987年10月，戴尔依靠他过人的胆量和敏锐的感觉，在股市暴跌的情况下大量吃进高盛的股票，第二年他便获', 'imgs/A1484663645943hp1.jpg', '2017-01-17 22:33:16', '0', '213', '1');
-INSERT INTO `good` VALUES ('91', 'hhun', '213213', '123982', '132', 'imgs/A1484730258842apple1.jpg', '2017-01-18 17:04:04', '0', '132', '1');
-INSERT INTO `good` VALUES ('92', '苹果之王', '3999', '500', 't挺好的', 'imgs/A1484735464365apple1.jpg', '2017-01-18 18:30:44', '0', '河南省', '1');
+INSERT INTO `good` VALUES ('83', '小芭比', '2332', '121231', ' 型号;4GB/：NVIDIA GeForce GT 530 显存容量：DVD刻录机显卡类型：独立显卡 显存容量：DVD刻录机显卡类型;1TB/，SATA2光驱类型：1GB显卡描述;1GB独显）5650-6215元屏幕尺寸', 'imgs/A1484644802022hp1.jpg', '2017-01-17 17:19:45', '10', '湖南', '1');
+INSERT INTO `good` VALUES ('86', '苹果', '5999', '12132', ' 型号;4GB/：NVIDIA GeForce GT 530 显存容量：DVD刻录机显卡类型：独立显卡 显存容量：DVD刻录机显卡类型;1TB/，SATA2光驱类型：1GB显卡描述;1GB独显）5650-6215元屏幕尺寸', 'imgs/A1484663085492apple1.jpg', '2017-01-17 22:24:28', '10', '天津', '0');
+INSERT INTO `good` VALUES ('87', '惠普', '121', '211', ' 型号;4GB/：NVIDIA GeForce GT 530 显存容量：DVD刻录机显卡类型：独立显卡 显存容量：DVD刻录机显卡类型;1TB/，SATA2光驱类型：1GB显卡描述;1GB独显）5650-6215元屏幕尺寸', 'imgs/A1484663296627hp1.jpg', '2017-01-17 22:28:04', '0', '231', '1');
+INSERT INTO `good` VALUES ('88', '小米', '121', '12', ' 型号;4GB/：NVIDIA GeForce GT 530 显存容量：DVD刻录机显卡类型：独立显卡 显存容量：DVD刻录机显卡类型;1TB/，SATA2光驱类型：1GB显卡描述;1GB独显）5650-6215元屏幕尺寸：', 'imgs/A1484663354481lenovo1.jpg', '2017-01-17 22:28:45', '0', '12', '1');
 
 -- ----------------------------
 -- Table structure for label
@@ -127,7 +131,7 @@ CREATE TABLE `label` (
   PRIMARY KEY (`id`),
   KEY `fk_label` (`g_id`),
   CONSTRAINT `fk_label` FOREIGN KEY (`g_id`) REFERENCES `good` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of label
@@ -136,10 +140,6 @@ INSERT INTO `label` VALUES ('54', '{\"color\":\"红色\",\"pin\":\"小米\",\"cp
 INSERT INTO `label` VALUES ('57', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"i5-7200U\",\"xian\":\"核芯显卡\",\"size\":\"22英寸\"}', '86', '白色', '苹果', 'i5-7200U', '核芯显卡', '22英寸');
 INSERT INTO `label` VALUES ('58', '{\"color\":\"红色\",\"pin\":\"惠普\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"17英寸\"}', '87', '红色', '惠普', '酷睿', '集成显卡', '17英寸');
 INSERT INTO `label` VALUES ('59', '{\"color\":\"白色\",\"pin\":\"小米\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"19英寸\"}', '88', '白色', '小米', '酷睿', '集成显卡', '19英寸');
-INSERT INTO `label` VALUES ('60', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"17英寸\"}', '89', '白色', '苹果', '酷睿', '集成显卡', '17英寸');
-INSERT INTO `label` VALUES ('61', '{\"color\":\"红色\",\"pin\":\"华硕\",\"cpu\":\"酷睿\",\"xian\":\"集成显卡\",\"size\":\"17英寸\"}', '90', '红色', '华硕', '酷睿', '集成显卡', '17英寸');
-INSERT INTO `label` VALUES ('62', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"酷睿\",\"xian\":\"核芯显卡\",\"size\":\"19英寸\"}', '91', '白色', '苹果', '酷睿', '核芯显卡', '19英寸');
-INSERT INTO `label` VALUES ('63', '{\"color\":\"白色\",\"pin\":\"苹果\",\"cpu\":\"酷睿\",\"xian\":\"独立显卡\",\"size\":\"17英寸\"}', '92', '白色', '苹果', '酷睿', '独立显卡', '17英寸');
 
 -- ----------------------------
 -- Table structure for labelinfo
@@ -196,11 +196,12 @@ CREATE TABLE `orderinfo` (
   PRIMARY KEY (`id`),
   KEY `fk_orde` (`o_id`),
   CONSTRAINT `fk_orde` FOREIGN KEY (`o_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orderinfo
 -- ----------------------------
+INSERT INTO `orderinfo` VALUES ('1', '1', '90', '1');
 
 -- ----------------------------
 -- Table structure for orders
@@ -213,11 +214,12 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   KEY `fk_order` (`u_id`),
   CONSTRAINT `fk_order` FOREIGN KEY (`u_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
+INSERT INTO `orders` VALUES ('1', '1', '2017-01-18 22:01:10');
 
 -- ----------------------------
 -- Table structure for pic
@@ -230,7 +232,7 @@ CREATE TABLE `pic` (
   PRIMARY KEY (`id`),
   KEY `pic_fk` (`g_id`),
   CONSTRAINT `pic_fk` FOREIGN KEY (`g_id`) REFERENCES `good` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of pic
@@ -243,16 +245,6 @@ INSERT INTO `pic` VALUES ('42', 'imgs/A1484663296629hp2.jpg', '87');
 INSERT INTO `pic` VALUES ('43', 'imgs/A1484663296630hp3.jpg', '87');
 INSERT INTO `pic` VALUES ('44', 'imgs/A1484663354481lenovo1.jpg', '88');
 INSERT INTO `pic` VALUES ('45', 'imgs/A1484663354482lenovo2.jpg', '88');
-INSERT INTO `pic` VALUES ('46', 'imgs/A1484663402173lenovo1.jpg', '89');
-INSERT INTO `pic` VALUES ('47', 'imgs/A1484663402173lenovo2.jpg', '89');
-INSERT INTO `pic` VALUES ('48', 'imgs/A1484663645943hp1.jpg', '90');
-INSERT INTO `pic` VALUES ('49', 'imgs/A1484663645944hp2.jpg', '90');
-INSERT INTO `pic` VALUES ('50', 'imgs/A1484730258842apple1.jpg', '91');
-INSERT INTO `pic` VALUES ('51', 'imgs/A1484730258844hp1.jpg', '91');
-INSERT INTO `pic` VALUES ('52', 'imgs/A1484735464365apple1.jpg', '92');
-INSERT INTO `pic` VALUES ('53', 'imgs/A1484735464365big1.jpg', '92');
-INSERT INTO `pic` VALUES ('54', 'imgs/A1484735464365hpbig1.jpg', '92');
-INSERT INTO `pic` VALUES ('55', 'imgs/A1484735464366big2.jpg', '92');
 
 -- ----------------------------
 -- Table structure for recommend
@@ -286,7 +278,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '1', '1', '87b9818a33d6c53827110bc54a365983');
+INSERT INTO `user` VALUES ('1', '小樱', '666', '87b9818a33d6c53827110bc54a365983');
 
 -- ----------------------------
 -- Table structure for userinfo
@@ -306,8 +298,9 @@ CREATE TABLE `userinfo` (
   PRIMARY KEY (`id`),
   KEY `f_userinfo` (`u_id`),
   CONSTRAINT `f_userinfo` FOREIGN KEY (`u_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of userinfo
 -- ----------------------------
+INSERT INTO `userinfo` VALUES ('1', '1', '小甜心', '河南省邓州市', '11', '大海', '666888', '1221@21312.com', '111', '2017-01-19 18:54:02');

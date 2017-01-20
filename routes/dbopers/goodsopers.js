@@ -7,7 +7,7 @@ var mysql = require("mysql");
 var conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '123456',
     database: 'goods',
     port: '3306'
 });
@@ -443,7 +443,7 @@ conn.query(scomments,function(err,result){
 	if(err){
 		console.log("查询评论出错："+err);
 	}else{
-//		console.log("评论长度："+result.length);
+		console.log("评论长度："+result.length);
 		res.send(result);
 	}
 });

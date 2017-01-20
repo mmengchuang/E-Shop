@@ -210,8 +210,8 @@ exports.showCar = function (req, res) {
             res.end(JSON.stringify(data));
         } else {
             /*res.writeHead(200, {'Content-Type': 'application/json'});
-            var data = {error_code: '4013', msg: err};
-            res.end(JSON.stringify(data));*/
+             var data = {error_code: '4013', msg: err};
+             res.end(JSON.stringify(data));*/
             throw err;
         }
     });
@@ -221,11 +221,11 @@ exports.showCar = function (req, res) {
 exports.delCar = function (req, res) {
     var uid = req.body.uid;
     var cartid = req.body.cartid;
-    var sql = ["delete from cart where u_id =? and id =?","delete from cartinfo where c_id =?"];
+    var sql = ["delete from cart where u_id =? and id =?", "delete from cartinfo where c_id =?"];
     connect.query(sql[0], [uid, cartid], function (err, result) {
         if (err == null) {
-            connect.query(sql[1], [cartid],function (err ,reslut) {
-                if (err==null){
+            connect.query(sql[1], [cartid], function (err, reslut) {
+                if (err == null) {
                     res.writeHead(200, {'Content-Type': 'application/json'});
                     var data = {error_code: '4000', msg: 'success'};
                     res.end(JSON.stringify(data));
@@ -338,38 +338,124 @@ exports.registerUser = function (req, res) {
 /** 查询自己的用户信息，用于移动端修改用户信息*/
 exports.selectUsers = function (req, res) {
     var uid = req.body.uid;
-    var sql = "select u_name,u_nick,u_address,u_head,u_truename,u_phone,u_email,u_state,u_regtime from user,userinfo where u_id=?"
+    console.log("我的id"+uid);
+    var sql = "select u_name,u_nick,u_address,u_head,u_truename,u_phone,u_email,u_state,u_regtime from user,userinfo where user.id=?"
+    connect.query(sql, [uid], function (err, result) {
+        if (err) {
+            throw err;
+            // res.writeHead(200, {'Content-Type': 'application/json'});
+            // var data = {error_code: '4013', msg: err};
+            // res.end(JSON.stringify(data));
+        } else {
+            // res.writeHead(200, {'Content-Type': 'application/json'});
+            // var data = {error_code: '4000', msg: "success", data: result};
+            // res.end(JSON.stringify(data));
+            // console.log("dsdsadsadsa"+result[0].u_name);
+            res.send(JSON.stringify(result));
+        }
+    })
+}
+
+/** 修改用户信息 */
+// exports.updateUsers = function (req, res) {
+//     var params = [req.body.u_nick, req.body.u_address, req.body.u_truename, req.body.u_phone,
+//         req.body.u_email, req.body.uid];
+//     var sql = "update userinfo set u_nick=?,u_address=?,u_truename=?,u_phone=?,u_email=? where u_id = ?"
+//     connect.query(sql, params, function (err, result) {
+//         if (err == null) {
+//             res.writeHead(200, {'Content-Type': 'application/json'});
+//             var data = {error_code: '4000', msg: "success"};
+//             res.end(JSON.stringify(data));
+//         } else {
+//             res.writeHead(200, {'Content-Type': 'application/json'});
+//             var data = {error_code: '4013', msg: "fail"};
+//             res.end(JSON.stringify(data));
+//         }
+//     });
+// }
+/** 修改用户信息 */
+exports.updateUsers = function (req,res) {
+    var uid=req.body.id;
+    connect.beginTransaction(function(err) {
+        if(err) {
+            console.log("err0:" + err);
+            connect.rollback(function() {
+                throw err;
+            });
+        }
+
+        var params = [req.body.u_nick,req.body.u_address,req.body.u_truename,req.body.u_phone,
+            req.body.u_email,req.body.id];
+        var sql = "update userinfo set u_nick=?,u_address=?,u_truename=?,u_phone=?,u_email=? where u_id = ?"
+        connect.query(sql,params,function (err,result) {
+            if(err) {
+                console.log("更新用户err1:" + err);
+                connect.rollback(function() {
+                    throw err;
+                });
+            } else {
+                connect.commit(function() {
+                    if(err) {
+                        console.log("更新用户err2:" + err);
+                        connect.rollback(function() {
+                            throw err;
+                        });
+                    }
+//                          res.send('ok');
+                    res.render("fore/myaccount",{id:uid});
+                });}
+        });
+    });
+}
+//查询用户密码
+exports.sUserPwd = function (req, res) {
+    var uid = req.body.id;
+    console.log("修改密码的id" + uid);
+    var sql = "select u_pwd from user where id=?";
     connect.query(sql, [uid], function (err, result) {
         if (err) {
             res.writeHead(200, {'Content-Type': 'application/json'});
             var data = {error_code: '4013', msg: err};
             res.end(JSON.stringify(data));
         } else {
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            var data = {error_code: '4000', msg: "success", data: result};
-            res.end(JSON.stringify(data));
+            console.log("mima :" + result[0].u_pwd);
+            res.send(JSON.stringify(result));
         }
     })
 }
-
-/** 修改用户信息 */
-exports.updateUsers = function (req, res) {
-    var params = [req.body.u_nick, req.body.u_address, req.body.u_truename, req.body.u_phone,
-        req.body.u_email, req.body.uid];
-    var sql = "update userinfo set u_nick=?,u_address=?,u_truename=?,u_phone=?,u_email=? where u_id = ?"
-    connect.query(sql, params, function (err, result) {
-        if (err == null) {
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            var data = {error_code: '4000', msg: "success"};
-            res.end(JSON.stringify(data));
-        } else {
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            var data = {error_code: '4013', msg: "fail"};
-            res.end(JSON.stringify(data));
+//修改用户密码
+exports.updateUserPwd = function (req, res) {
+    var uid = req.body.id;
+    var pwd = req.body.u_new;
+    console.log("" + pwd + "--id" + uid)
+    connect.beginTransaction(function (err) {
+        if (err) {
+            console.log("修改密码err:db.js:" + err);
+            connect.rollback(function () {
+                throw err;
+            });
         }
+
+        var params = [pwd, uid];
+        var sql = "update user set u_pwd=? where id = ?";
+        connect.query(sql, params, function (err, result) {
+            if (err) {
+                console.log("修改密码err1:" + err);
+                connect.rollback(function () {
+                    throw err;
+                });
+            } else {
+                connect.commit(function () {
+                    if (err) {
+                        console.log("更新用户err2:" + err);
+                        connect.rollback(function () {
+                            throw err;
+                        });
+                    }
+                    console.log("修改成功");
+                    res.render("fore/myaccount", {id: uid});
+                });
+            }
+        });
     });
 }
-
-/** 修改头像*/
-
-/** 修改密码*/

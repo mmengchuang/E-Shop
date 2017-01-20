@@ -40,13 +40,13 @@
                         <div class="navbar" id="topnav">
                             <div class="navbar-inner">
                                 <ul class="nav">
-                                    <li><a class="home active" href="#">主页</a>
+                                    <li><a class="home active" href="/appindex">首 页</a>
                                     </li>
-                                    <li><a class="myaccount" href="#">个人中心</a>
+                                    <li><a class="myaccount" href="/users?uid=1">个人中心</a>
                                     </li>
-                                    <li><a class="shoppingcart" href="#">购物车</a>
+                                    <li><a class="shoppingcart" href="/app/shopcar">购物车</a>
                                     </li>
-                                    <li><a class="checkout" href="#">我的订单</a>
+                                    <li><a class="checkout" href="/app/orders">我的订单</a>
                                     </li>
                                 </ul>
                             </div>
@@ -330,6 +330,7 @@
                 //请求数据
                 Vue.http.post('/api/users/register', data).then(function (res) {//Vue get 请求
                     if (res.data.error_code == 4000) {
+                        alert("注册成功");
                         window.location.href = "./login"
                     } else {
                         alert(res.data.msg);

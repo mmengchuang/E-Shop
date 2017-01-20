@@ -40,13 +40,13 @@
                         <div class="navbar" id="topnav">
                             <div class="navbar-inner">
                                 <ul class="nav">
-                                    <li><a class="home active" href="#">主页</a>
+                                    <li><a class="home active" href="/appindex">首 页</a>
                                     </li>
-                                    <li><a class="myaccount" href="#">个人中心</a>
+                                    <li><a class="myaccount" href="/users?uid=1">个人中心</a>
                                     </li>
-                                    <li><a class="shoppingcart" href="#">购物车</a>
+                                    <li><a class="shoppingcart" href="/app/shopcar">购物车</a>
                                     </li>
-                                    <li><a class="checkout" href="#">我的订单</a>
+                                    <li><a class="checkout" href="/app/orders">我的订单</a>
                                     </li>
                                 </ul>
                             </div>
@@ -172,7 +172,7 @@
             </h1>
             <!-- Cart-->
             <div class="cart-info">
-                <table class="table table-striped table-bordered"  v-for="shopcar in shopcars">
+                <table class="table table-striped table-bordered" v-for="shopcar in shopcars">
                     <tr>
                         <th class="image">Image</th>
                         <th class="name">Product Name</th>
@@ -183,17 +183,21 @@
                         <th class="total">Total</th>
                     </tr>
                     <tr>
-                        <td class="image"><a href="#"><img title="product" alt="product" v-bind:src="shopcar.g_mpic" height="50" width="50"></a></td>
+                        <td class="image"><a href="#"><img title="product" alt="product" v-bind:src="shopcar.g_mpic"
+                                                           height="50" width="50"></a></td>
                         <td class="name"><a href="#">{{shopcar.g_name}}</a></td>
                         <td class="model">Purchased Product</td>
-                        <td class="quantity"><input type="text" size="1" v-model="shopcar.g_count" name="quantity[40]" class="span1">
+                        <td class="quantity"><input type="text" size="1" v-model="shopcar.g_count" name="quantity[40]"
+                                                    class="span1">
                         </td>
                         <td class="total"><a href="#"><img class="tooltip-test" data-original-title="Update"
                                                            src="img/update.png" alt=""></a>
-                            <a href="#"  v-on:click="onRemove(index,2)"><img class="tooltip-test" data-original-title="Remove" src="img/remove.png"
-                                             alt=""></a></td>
+                            <a href="#" v-on:click="onRemove(index,2)"><img class="tooltip-test"
+                                                                            data-original-title="Remove"
+                                                                            src="img/remove.png"
+                                                                            alt=""></a></td>
                         <td class="price">￥{{shopcar.g_price}}</td>
-                        <td class="total" >￥{{shopcar.g_price*shopcar.g_count}}</td>
+                        <td class="total">￥{{shopcar.g_price*shopcar.g_count}}</td>
                     </tr>
                 </table>
             </div>
@@ -279,7 +283,7 @@
     <section class="copyrightbottom">
         <div class="container">
             <div class="row">
-                <div class="span6"> All images are copyright to their owners. More Templates </div>
+                <div class="span6"> All images are copyright to their owners. More Templates</div>
                 <div class="span6 textright"> ShopSimple @ 2012</div>
             </div>
         </div>
@@ -304,49 +308,52 @@
 <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
 <script type="text/javascript" src="js/jquery.ba-throttle-debounce.min.js"></script>
 <script defer src="js/custom.js"></script>
+<!--用于与Android 交互的-->
+<script src="/app/js/get-user.js" type="text/javascript"></script>
 <script>
     var vue = new Vue({
         el: "#main",
         data: {
-            shopcars: [{g_name:"商品名称"}],
+            shopcars: [{g_name: "商品名称"}],
         },
         http: {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}   //1.post请求需设置请求头
         },
         computed: { //计算属性，计算总价格，返回给页面展示
-            priceTotal: function() {
+            priceTotal: function () {
                 var price = 0;
                 //遍历items数组,计算当前（this）price字段和count字段的价格总和
-                for(var i = 0; i < this.shopcars.length; i++) {
+                for (var i = 0; i < this.shopcars.length; i++) {
                     price += this.shopcars[i].g_price * this.shopcars[i].g_count;
                 }
                 return price;
             }
         },
         methods: {
-            onloading: function() {
+            onloading: function () {
                 var ob = this; //当前对象
-                var token = "2016";
-                var uid = 1;
-                var data = {token:token,uid:uid}
-                Vue.http.post('/api/shopcar',data).then(function(res) {
-                    if (res.data.error_code==4000){
+                var userInfo = getUserInfo();//获取Android端用户的个人信息
+                var token = userInfo.token;
+                var uid = userInfo.uid;
+                var data = {token: token, uid: uid}
+                Vue.http.post('/api/shopcar', data).then(function (res) {
+                    if (res.data.error_code == 4000) {
                         var res_data = res.data.data;//获取服务器相应数据
                         ob.shopcars = res_data;
-                        for (var i=0;i<ob.shopcars.length;i++){
-                            ob.shopcars[i].g_mpic =  "../"+ob.shopcars[i].g_mpic
+                        for (var i = 0; i < ob.shopcars.length; i++) {
+                            ob.shopcars[i].g_mpic = "../" + ob.shopcars[i].g_mpic
                         }
                     } else {
                         alert("查询失败");
                     }
                     //请求成功
-                }, function(err) {
+                }, function (err) {
                     //请求失败
                     alert("err:" + err);
                     throw err;
                 });
             },
-            onRemove:function (index,cartid) {//移除购物车
+            onRemove: function (index, cartid) {//移除购物车
                 var uid = 1;
                 var token = "2016";
 //                var gid = 83;//暂时设置为静态
@@ -354,9 +361,9 @@
                 alert(cartid);
                 var ob = this;
                 alert(ob.shopcars.g_name);
-                var data = {uid:uid,token:token,cartid:cartid};
-                Vue.http.post("/api/shopcar/delCar",data).then(function (res) {
-                    if (res.data.error_code==4000){
+                var data = {uid: uid, token: token, cartid: cartid};
+                Vue.http.post("/api/shopcar/delCar", data).then(function (res) {
+                    if (res.data.error_code == 4000) {
                         alert("删除成功");
                         ob.shopcars.splice(index, 1);
                     } else {
@@ -364,12 +371,18 @@
                     }
                 });
             },
-            onOrders :function () {
+            onOrders: function () {
                 var ob = this;
-                for (var i=0;i<ob.shopcars.length;i++){
-                    var data = {token:'2016',u_id:1,g_id:ob.shopcars[i].g_id,g_count:ob.shopcars[i].g_count,o_time:"2017-01-17 17:19:45"};
-                    Vue.http.post("/api/orders/preOrder",data).then(function (res) {
-                        if (res.data.error_code==4000){
+                for (var i = 0; i < ob.shopcars.length; i++) {
+                    var data = {
+                        token: '2016',
+                        u_id: 1,
+                        g_id: ob.shopcars[i].g_id,
+                        g_count: ob.shopcars[i].g_count,
+                        o_time: "2017-01-17 17:19:45"
+                    };
+                    Vue.http.post("/api/orders/preOrder", data).then(function (res) {
+                        if (res.data.error_code == 4000) {
                             alert("下单成功");
                         } else {
                             alert("下单失败");
@@ -379,7 +392,7 @@
             }
         }
     });
-    window.onload = function() {
+    window.onload = function () {
         vue.onloading();
     }
 </script>

@@ -23,6 +23,7 @@
     <![endif]-->
     <script src="/js/vue.js" type="text/javascript"></script>
     <script src="/js/vue-resource.min.js" type="text/javascript"></script>
+    <script src="/app/js/get-user.js" type="text/javascript"></script>
     <!-- fav -->
     <link rel="shortcut icon" href="assets/ico/favicon.html">
 </head>
@@ -40,13 +41,13 @@
                         <div class="navbar" id="topnav">
                             <div class="navbar-inner">
                                 <ul class="nav">
-                                    <li><a class="home active" href="#">主页</a>
+                                    <li><a class="home active" href="/appindex">首 页</a>
                                     </li>
-                                    <li><a class="myaccount" href="#">个人中心</a>
+                                    <li><a class="myaccount" href="/users?uid=1">个人中心</a>
                                     </li>
-                                    <li><a class="shoppingcart" href="#">购物车</a>
+                                    <li><a class="shoppingcart" href="/app/shopcar">购物车</a>
                                     </li>
-                                    <li><a class="checkout" href="#">我的订单</a>
+                                    <li><a class="checkout" href="/app/orders">我的订单</a>
                                     </li>
                                 </ul>
                             </div>
@@ -307,26 +308,33 @@
         methods: {
             onloading: function () {
                 var ob = this; //当前对象
-                var token = "2016";
-                var uid = 1;
-                var data = {token: token, uid: uid}
-                Vue.http.post('/api/orders', data).then(function (res) {//查询订单信息
+                var userInfo = getUserInfo();//从Android 端获取用户信息
+                var flag = userInfo.FLAG;
+                alert("我的订单" + flag);
+                if (flag) {//如果用户登陆状态
+                    var token = userInfo.TOKEN;
+                    var uid = userInfo.UID;
+                    var data = {token: token, uid: uid}
+                    Vue.http.post('/api/orders', data).then(function (res) {//查询订单信息
 
-                    if (res.data.error_code == 4000) {
-                        var res_data = res.data.data;//获取服务器相应数据
-                        ob.orders = res_data;
-                        for (var i = 0; i < ob.orders.length; i++) {
-                            ob.orders[i].g_mpic = "../" + ob.orders[i].g_mpic
+                        if (res.data.error_code == 4000) {
+                            var res_data = res.data.data;//获取服务器相应数据
+                            ob.orders = res_data;
+                            for (var i = 0; i < ob.orders.length; i++) {
+                                ob.orders[i].g_mpic = "../" + ob.orders[i].g_mpic
+                            }
+                        } else {
+                            alert("查询失败");
                         }
-                    } else {
-                        alert("查询失败");
-                    }
-                    //请求成功
-                }, function (err) {
-                    //请求失败
-                    alert("err:" + err);
-                    throw err;
-                });
+                        //请求成功
+                    }, function (err) {
+                        //请求失败
+                        alert("err:" + err);
+                        throw err;
+                    });
+                } else {
+                    window.location.href = "/app/login";
+                }
             }
         }
     });
