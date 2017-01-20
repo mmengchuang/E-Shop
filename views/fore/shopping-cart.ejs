@@ -40,13 +40,13 @@
                         <div class="navbar" id="topnav">
                             <div class="navbar-inner">
                                 <ul class="nav">
-                                    <li><a class="home active" href="#">Home</a>
+                                    <li><a class="home active" href="#">主页</a>
                                     </li>
-                                    <li><a class="myaccount" href="#">My Account</a>
+                                    <li><a class="myaccount" href="#">个人中心</a>
                                     </li>
-                                    <li><a class="shoppingcart" href="#">Shopping Cart</a>
+                                    <li><a class="shoppingcart" href="#">购物车</a>
                                     </li>
-                                    <li><a class="checkout" href="#">CheckOut</a>
+                                    <li><a class="checkout" href="#">我的订单</a>
                                     </li>
                                 </ul>
                             </div>
@@ -366,28 +366,16 @@
             },
             onOrders :function () {
                 var ob = this;
-//                var cc = ob.shopcars[0].g_count;
-//                var ss = ob.shopcars.length;
-//                alert("下单的数据量"+ss);
-//                for ()
-//                for (var i=0;i<ob.shopcars.length;i++){
-//                    var data = {token:'2016',uid:1,g_id:ob.shopcars[i].g_id,g_count:ob.shopcars[i].g_count}
-//                    Vue.http.post("/api/orders/preOrder",data).then(function (res) {
-//                        if (res.data.error_code==4000){
-//                            alert("下单成功");
-//                        } else {
-//                            alert("下单失败");
-//                        }
-//                    });
-//                }
-                var data = {token:'2016',u_id:1,g_id:ob.shopcars[0].g_id,g_count:ob.shopcars[0].g_count,o_time:"2017-01-17 17:19:45"};
-                Vue.http.post("/api/orders/preOrder",data).then(function (res) {
+                for (var i=0;i<ob.shopcars.length;i++){
+                    var data = {token:'2016',u_id:1,g_id:ob.shopcars[i].g_id,g_count:ob.shopcars[i].g_count,o_time:"2017-01-17 17:19:45"};
+                    Vue.http.post("/api/orders/preOrder",data).then(function (res) {
                         if (res.data.error_code==4000){
                             alert("下单成功");
                         } else {
                             alert("下单失败");
                         }
                     });
+                }
             }
         }
     });

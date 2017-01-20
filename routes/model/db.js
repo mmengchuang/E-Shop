@@ -79,7 +79,7 @@ exports.checkToken = function (req, res, next) {
 /** 查询订单*/
 exports.showOrdersToMobile = function (req, res) {
     var uid = req.body.uid;
-    var sql = "select orders.id,substring(orders.o_time,1,20) o_time,good.g_name,good.g_price,orderinfo.g_count,user.u_name from orders," +
+    var sql = "select orders.id,substring(orders.o_time,1,20) o_time,good.g_name,good.g_mpic,good.g_price,orderinfo.g_count,user.u_name from orders," +
         "orderinfo,good,user where orders.id = orderinfo.o_id and orderinfo.g_id = good.id and " +
         "orders.u_id = user.id and orders.u_id = " + uid
     connect.query(sql, function (err, result) {
@@ -105,7 +105,7 @@ exports.preOrder = function (req, res) {
         'insert into orderinfo(o_id,g_id,g_count) values(?,?,?)',//向订单详情信息表插入数据
         'update good set g_num=? where id=?;'
     ];
-    connection.beginTransaction(function (err) {//开启一个事务操作
+    connect.beginTransaction(function (err) {//开启一个事务操作
         if (err) {
             throw err;
         }
