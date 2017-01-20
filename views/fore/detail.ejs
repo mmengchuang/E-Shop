@@ -33,10 +33,9 @@
             <div class="navbar" id="topnav">
               <div class="navbar-inner">
                 <ul class="nav" >
-                  <li><a class="home active" href="/appindex">首 页</a>
+                 <li><a class="home active" href="/appindex">首 页</a>
                   </li>
-                  <li><a class="myaccount" href="#">个人中心</a>
-                  </li>
+                  <li><a class="myaccount" href="/users?uid=1">个人中心</a></li>
                   <li><a class="shoppingcart" href="#">购物车</a>
                   </li>
                   <li><a class="checkout" href="#">推荐</a>
@@ -152,7 +151,7 @@
                     </form>
                   </div>
                   <div class="tab-pane" id="producttag">
-                  	<ul>
+                  	<ul id="comm">
                   		<li v-for="comm in comments" ><h4>评论人：{{comm.u_name}}&nbsp;&nbsp;&nbsp;&nbsp;
                   			&nbsp;&nbsp;&nbsp;&nbsp;{{comm.comm_time}}</h4> 
                   		<h5 style="color: #000;"><span style="color: #2177C7;">主题: </span>{{comm.com_title}}
@@ -339,7 +338,6 @@ var id = <%=id%>;
 									pic[i].p_url="../"+pic[i].p_url;
 								}
 							ob.pics=pic;
-							ob.getComm();
 							},(response) =>{
 								alert("error:"+response.data);
 							});
@@ -383,17 +381,22 @@ var id = <%=id%>;
 				ob.$http.post('/goods/queryComms',{g_id:ob.id})
 				.then((res) =>{
 					var r=res.data;
-					//处理时间
-					for(var i = 0; i < r.length; i++) {
-			var time = r[i].comm_time;
-var hour=parseInt(time.split("T")[1].substr(0,2))+8;
-time=time.split("T")[0]+" "+hour+time.split("T")[1].substring(2,8);
-								r[i].comm_time = time.replace("T", " ");
-								r[i].comm_time = r[i].comm_time.replace(".000Z", " ");}
-					 ob.comments=r;
+					if(r.length==0){
+					alert("暂时没有评论！");	
+					}else{
+			for(var i = 0; i < r.length; i++) {
+				//处理时间
+		   var time = r[i].comm_time;
+           var hour=parseInt(time.split("T")[1].substr(0,2))+8;
+            time=time.split("T")[0]+" "+hour+time.split("T")[1].substring(2,8);
+			r[i].comm_time = time.replace("T", " ");
+			r[i].comm_time = r[i].comm_time.replace(".000Z", " ");
+			}
+			 ob.comments=r;
+			}
 //					alert("获取数据"+ob.comments[0].u_name);
 				},(resp) =>{
-					alert("error:"+resp.data);
+					alert("评论查询错误："+resp);
 				});
 			}
 	}

@@ -443,7 +443,7 @@ conn.query(scomments,function(err,result){
 	if(err){
 		console.log("查询评论出错："+err);
 	}else{
-		console.log(result[0].comment);
+//		console.log("评论长度："+result.length);
 		res.send(result);
 	}
 });
